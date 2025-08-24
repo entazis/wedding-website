@@ -31,7 +31,7 @@ The guest form collects the following information:
 
     ```javascript
        const SHEET_NAME = 'Guest Responses'; // Name of the sheet tab
-       const NOTIFICATION_EMAIL = 'pinter.victoria@gmail.com'; // Your email for notifications
+       const NOTIFICATION_EMAIL = 'hello@barbiesbence.hu'; // Your email for notifications
     ```
 
 5. Save the project (Ctrl+S or Cmd+S)

@@ -15,7 +15,7 @@
 
 // Configuration - Update these values
 const SHEET_NAME = "Guest Responses"; // Name of the sheet tab
-const NOTIFICATION_EMAIL = "pinter.victoria@gmail.com"; // Email for notifications
+const NOTIFICATION_EMAIL = "hello@barbiesbence.hu"; // Email for notifications
 
 /**
  * Handles POST requests from the wedding website form
