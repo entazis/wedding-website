@@ -31,7 +31,7 @@ import { z } from 'zod';
 const guestFormSchema = z.object({
   name: z
     .string()
-    .min(2, 'A név legalább 2 karakter hosszú legyen')
+    .min(3, 'A név legalább 3 karakter hosszú legyen')
     .max(100, 'A név maximum 100 karakter lehet'),
   email: z
     .string()
@@ -49,7 +49,7 @@ const guestFormSchema = z.object({
   guestCount: z
     .number()
     .min(1, 'Legalább 1 főnek kell lennie')
-    .max(10, 'Maximum 10 fő lehet'),
+    .max(5, 'Maximum 5 fő lehet'),
   foodAllergies: z
     .string()
     .max(500, 'Az étel allergiák leírása maximum 500 karakter lehet')
@@ -110,7 +110,7 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
       
       // Show success toast
       toast.success('Visszajelzés elküldve! 🎉', {
-        description: 'Köszönjük a visszajelzést! Hamarosan felvesszük veled a kapcsolatot az esküvő részleteivel kapcsolatban.',
+        description: 'Köszönjük a visszajelzést, ott találkozunk!',
         duration: 6000,
       });
       
@@ -266,7 +266,7 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-foreground font-medium">
-                      Vendégek száma (te is beleértve) *
+                      Vendégek száma (téged is beleértve) *
                     </FormLabel>
                     <FormControl>
                       <Input
