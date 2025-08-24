@@ -39,7 +39,7 @@ const Navigation = () => {
       }`}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="font-display text-xl md:text-2xl font-bold text-primary">
+            <div className="font-script text-script-lg text-primary">
               B & B
             </div>
 
@@ -49,7 +49,7 @@ const Navigation = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                  className="text-foreground hover:text-primary transition-colors duration-200 font-body font-medium"
                 >
                   {item.label}
                 </button>
@@ -75,7 +75,7 @@ const Navigation = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+                    className="text-left text-foreground hover:text-primary transition-colors duration-200 font-body font-medium py-2"
                   >
                     {item.label}
                   </button>

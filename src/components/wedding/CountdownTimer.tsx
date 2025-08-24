@@ -40,10 +40,10 @@ const CountdownTimer = () => {
       ].map((item, index) => (
         <div key={item.label} className="text-center">
           <div className="wedding-card bg-white/90 backdrop-blur-md border-2 border-white/30 min-w-[70px] md:min-w-[90px] shadow-lg">
-            <div className="text-2xl md:text-4xl font-display font-bold text-primary animate-pulse-slow">
+            <div className="text-display-md text-primary animate-pulse-slow">
               {item.value.toString().padStart(2, '0')}
             </div>
-            <div className="text-xs md:text-sm font-medium text-foreground/80 uppercase tracking-wider">
+            <div className="text-xs md:text-sm font-body font-medium text-foreground/80 uppercase tracking-wider">
               {item.label}
             </div>
           </div>

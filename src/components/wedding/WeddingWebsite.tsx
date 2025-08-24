@@ -29,7 +29,7 @@ const WeddingWebsite = () => {
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="animate-fade-in">
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 drop-shadow-lg">
+            <h1 className="text-display-xl text-white mb-4 drop-shadow-lg">
               Barbi & Bence
             </h1>
             <div className="flex items-center justify-center gap-4 mb-6">
@@ -37,7 +37,10 @@ const WeddingWebsite = () => {
               <Heart className="text-white animate-pulse-slow drop-shadow-md" size={24} />
               <div className="h-px bg-white/40 flex-1 max-w-20"></div>
             </div>
-            <p className="font-display text-xl md:text-2xl text-white/90 mb-8 drop-shadow-md">
+            <div className="font-script text-script-lg text-white/95 mb-2 drop-shadow-md">
+              szeretettel meghívunk
+            </div>
+            <p className="text-body-lg text-white/90 mb-8 drop-shadow-md font-medium">
               2026. május 1. • Deák Udvarház, Kakucs
             </p>
           </div>
@@ -60,22 +63,22 @@ const WeddingWebsite = () => {
       {/* Our Story Section */}
       <section id="story" className="section-spacing bg-gradient-section">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-12">
+          <h2 className="text-display-lg text-primary mb-12">
             Szerelmünk története
           </h2>
           <Card className="wedding-card bg-card/60 backdrop-blur-sm">
             <CardContent className="p-8 md:p-12">
-              <div className="prose prose-lg max-w-none text-muted-foreground">
-                <p className="text-xl leading-relaxed mb-6">
+              <div className="max-w-none text-muted-foreground">
+                <p className="text-body-lg mb-6">
                   Történetünk még íródik, de azt biztosan tudjuk, hogy 
                   2026. május 1-je lesz a legszebb fejezet.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-body-elegant">
                   Alig várjuk, hogy megosszuk veletek, hogyan találkoztunk, 
                   szerettünk egymásba, és döntöttünk úgy, hogy együtt töltjük az életet. 
                   Hamarosan itt lesz utazásunk teljes története ehhez a különleges naphoz.
                 </p>
-                <div className="mt-8 text-primary font-medium">
+                <div className="mt-8 font-script text-script-lg text-primary">
                   Hamarosan...
                 </div>
               </div>
@@ -87,7 +90,7 @@ const WeddingWebsite = () => {
       {/* Event Details Section */}
       <section id="details" className="section-spacing">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary text-center mb-16">
+          <h2 className="text-display-lg text-primary text-center mb-16">
             Esküvő részletei
           </h2>
           
@@ -97,7 +100,7 @@ const WeddingWebsite = () => {
                 <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <Calendar className="text-primary" size={32} />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Templomi szertartás</h3>
+                <h3 className="text-display-md text-primary mb-4">Templomi szertartás</h3>
                 <div className="space-y-2 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2">
                     <Calendar size={16} />
@@ -116,7 +119,7 @@ const WeddingWebsite = () => {
                 <div className="bg-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <Heart className="text-secondary" size={32} />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Polgári szertartás</h3>
+                <h3 className="text-display-md text-primary mb-4">Polgári szertartás</h3>
                 <div className="space-y-2 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2">
                     <Calendar size={16} />
@@ -135,7 +138,7 @@ const WeddingWebsite = () => {
                 <div className="bg-wedding-gold/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <Clock className="text-wedding-gold" size={32} />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Vacsora és buli</h3>
+                <h3 className="text-display-md text-primary mb-4">Vacsora és buli</h3>
                 <div className="space-y-2 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2">
                     <Calendar size={16} />
@@ -155,7 +158,7 @@ const WeddingWebsite = () => {
       {/* Location Section */}
       <section id="location" className="section-spacing bg-gradient-section">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary text-center mb-16">
+          <h2 className="text-display-lg text-primary text-center mb-16">
             Helyszín
           </h2>
           
@@ -163,13 +166,13 @@ const WeddingWebsite = () => {
             <div>
               <Card className="wedding-card">
                 <CardContent className="p-8">
-                  <h3 className="font-display text-2xl font-bold text-primary mb-6">Deák Udvarház</h3>
+                  <h3 className="text-display-md text-primary mb-6">Deák Udvarház</h3>
                   <div className="space-y-4 text-muted-foreground">
                     <p className="flex items-start gap-3">
                       <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
                       <span>Kakucs, Magyarország</span>
                     </p>
-                    <p className="text-lg leading-relaxed">
+                    <p className="text-body-elegant">
                       Egy gyönyörű történelmi helyszín, amelyet kertek és természeti szépség vesz körül, 
                       tökéletes tavaszi vadvirágos témájú ünneplésünkhöz.
                     </p>
@@ -212,18 +215,18 @@ const WeddingWebsite = () => {
       {/* Travel & Accommodation Section */}
       <section className="section-spacing">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-12">
+          <h2 className="text-display-lg text-primary mb-12">
             Utazás és szállás
           </h2>
           <Card className="wedding-card">
             <CardContent className="p-8 md:p-12">
-              <div className="prose prose-lg max-w-none text-muted-foreground">
-                <p className="text-xl leading-relaxed mb-6">
+              <div className="max-w-none text-muted-foreground">
+                <p className="text-body-lg mb-6">
                   Dolgozunk azon, hogy összegyűjtsük a legjobb ajánlásokat 
                   szállodákról, közlekedésről és helyi látnivalókról, hogy 
                   látogatásotok a lehető legkényelmesebb és legélvezetesebb legyen.
                 </p>
-                <div className="text-primary font-medium text-lg">
+                <div className="font-script text-script-lg text-primary">
                   Szállás részletek hamarosan...
                 </div>
               </div>
@@ -235,17 +238,17 @@ const WeddingWebsite = () => {
       {/* RSVP Section */}
       <section id="rsvp" className="section-spacing bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-12">
+          <h2 className="text-display-lg mb-12">
             Csatlakozz az ünnepléshez
           </h2>
           
           <Card className="wedding-card bg-background/95 backdrop-blur-sm border-primary/20">
             <CardContent className="p-8 md:p-12">
               <div className="text-center text-foreground">
-                <h3 className="font-display text-2xl font-bold text-primary mb-6">
+                <h3 className="text-display-md text-primary mb-6">
                   Visszajelzés hamarosan
                 </h3>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-body-elegant text-muted-foreground mb-8">
                   Egy gyönyörű visszajelzési rendszert készítünk, hogy megerősíthesd részvételed. 
                   Addig is, bátran keress minket közvetlenül, ha bármilyen kérdésed van.
                 </p>
@@ -281,7 +284,7 @@ const WeddingWebsite = () => {
             <Heart className="text-primary animate-float" size={20} />
             <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
           </div>
-          <p className="font-display text-lg text-primary font-medium mb-2">
+          <p className="font-script text-script-lg text-primary mb-2">
             Barbi & Bence
           </p>
           <p className="text-muted-foreground">
