@@ -7,11 +7,25 @@ import CountdownTimer from './CountdownTimer';
 import Navigation from './Navigation';
 
 const WeddingWebsite = () => {
-  const scrollToSection = (sectionId: string) => {
+  // Contact information
+  const CONTACT_PHONE = '+36 30 509 5330';
+  const CONTACT_EMAIL = 'pinter.victoria@gmail.com ';
+
+  const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  const handlePhoneCall = (): void => {
+    window.location.href = `tel:${CONTACT_PHONE}`;
+  };
+
+  const handleEmailSend = (): void => {
+    const subject = encodeURIComponent('Esküvői visszajelzés - Barbi & Bence');
+    const body = encodeURIComponent('Kedves Barbi és Bence,\n\n');
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -266,14 +280,30 @@ const WeddingWebsite = () => {
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="flex items-center justify-center gap-3 text-muted-foreground bg-primary/10 rounded-lg p-4 floating-element">
+                  <Button
+                    onClick={handlePhoneCall}
+                    variant="outline"
+                    className="flex items-center justify-center gap-3 text-muted-foreground bg-primary/10 hover:bg-primary/20 border-primary/30 rounded-lg p-6 h-auto wedding-button floating-element hover:scale-102"
+                    style={{ transition: 'var(--transition-elegant)' }}
+                  >
                     <Phone size={24} className="text-primary" />
-                    <span className="text-lg">Hívj fel minket</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3 text-muted-foreground bg-secondary/10 rounded-lg p-4 floating-element">
+                    <div className="text-left">
+                      <div className="text-lg font-medium">Hívj fel minket</div>
+                      <div className="text-sm text-primary">{CONTACT_PHONE}</div>
+                    </div>
+                  </Button>
+                  <Button
+                    onClick={handleEmailSend}
+                    variant="outline"
+                    className="flex items-center justify-center gap-3 text-muted-foreground bg-secondary/10 hover:bg-secondary/20 border-secondary/30 rounded-lg p-6 h-auto wedding-button floating-element hover:scale-102"
+                    style={{ transition: 'var(--transition-elegant)' }}
+                  >
                     <Mail size={24} className="text-primary" />
-                    <span className="text-lg">Írj nekünk emailt</span>
-                  </div>
+                    <div className="text-left">
+                      <div className="text-lg font-medium">Írj nekünk emailt</div>
+                      <div className="text-sm text-primary">{CONTACT_EMAIL}</div>
+                    </div>
+                  </Button>
                 </div>
                 
                 <div className="mt-8 p-6 bg-muted/30 rounded-xl backdrop-blur-sm border border-primary/20">
