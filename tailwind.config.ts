@@ -74,6 +74,10 @@ export default {
         "gradient-secondary": "var(--gradient-secondary)",
         "gradient-hero": "var(--gradient-hero)",
         "gradient-section": "var(--gradient-section)",
+        "gradient-section-alt": "var(--gradient-section-alt)",
+        "gradient-romantic": "var(--gradient-romantic)",
+        "gradient-sage": "var(--gradient-sage)",
+        "gradient-gold": "var(--gradient-gold)",
       },
       boxShadow: {
         soft: "var(--shadow-soft)",

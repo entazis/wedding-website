@@ -59,6 +59,10 @@ All colors MUST be HSL.
     --gradient-secondary: linear-gradient(135deg, hsl(var(--wedding-sage)), hsl(var(--secondary-light)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--wedding-cream)), hsl(var(--wedding-blush) / 0.3));
     --gradient-section: linear-gradient(180deg, transparent, hsl(var(--wedding-cream) / 0.5));
+    --gradient-section-alt: linear-gradient(135deg, hsl(var(--wedding-cream) / 0.8), hsl(var(--wedding-blush) / 0.1));
+    --gradient-romantic: linear-gradient(45deg, hsl(var(--wedding-rose) / 0.1), hsl(var(--wedding-blush) / 0.2), hsl(var(--wedding-cream) / 0.3));
+    --gradient-sage: linear-gradient(135deg, hsl(var(--wedding-sage) / 0.2), hsl(var(--secondary-light) / 0.3));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--wedding-gold) / 0.1), hsl(var(--wedding-cream) / 0.4));
 
     /* Elegant shadows */
     --shadow-soft: 0 4px 20px hsl(var(--wedding-blush) / 0.15);
@@ -251,5 +255,95 @@ All colors MUST be HSL.
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.6;
+  }
+
+  /* Enhanced section backgrounds */
+  .bg-gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+
+  .bg-gradient-sage {
+    background: var(--gradient-sage);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-section-alt {
+    background: var(--gradient-section-alt);
+  }
+
+  /* Decorative elements */
+  .section-divider {
+    @apply relative py-8;
+  }
+
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--wedding-blush)), transparent);
+  }
+
+  .section-divider::after {
+    content: '❀';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: hsl(var(--wedding-blush));
+    font-size: 1.5rem;
+    background: hsl(var(--background));
+    padding: 0 1rem;
+  }
+
+  /* Enhanced card styles */
+  .wedding-card-enhanced {
+    @apply bg-card/90 backdrop-blur-md border border-border/30 rounded-2xl p-8;
+    box-shadow: var(--shadow-elegant);
+    transition: var(--transition-elegant);
+    background: linear-gradient(135deg, hsl(var(--card) / 0.9), hsl(var(--wedding-cream) / 0.5));
+  }
+
+  .wedding-card-enhanced:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Floating elements animation */
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-element:nth-child(2n) {
+    animation-delay: -2s;
+  }
+
+  .floating-element:nth-child(3n) {
+    animation-delay: -4s;
+  }
+
+  /* Pattern overlays */
+  .pattern-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pattern-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 80%, hsl(var(--wedding-blush) / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, hsl(var(--wedding-sage) / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, hsl(var(--wedding-rose) / 0.05) 0%, transparent 50%);
+    pointer-events: none;
   }
 }
