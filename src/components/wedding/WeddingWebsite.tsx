@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, Clock, Heart, Mail, MapPin, Phone } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
+import GuestForm from './GuestForm';
 import Navigation from './Navigation';
 
 const WeddingWebsite = () => {
@@ -262,21 +263,29 @@ const WeddingWebsite = () => {
 
       {/* RSVP Section */}
       <section id="rsvp" className="section-spacing bg-gradient-primary text-primary-foreground pattern-overlay">
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
+        <div className="container mx-auto max-w-4xl relative z-10">
           <div className="section-divider mb-8"></div>
-          <h2 className="text-display-lg mb-12 floating-element">
+          <h2 className="text-display-lg mb-12 text-center floating-element">
             Csatlakozz az ünnepléshez
           </h2>
           
+          <div className="mb-12">
+            <GuestForm onSuccess={() => {
+              // Scroll to top or show additional success message
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }} />
+          </div>
+          
+          {/* Contact Information */}
           <Card className="wedding-card-enhanced bg-background/95 backdrop-blur-md border-primary/20">
             <CardContent className="p-8 md:p-12">
               <div className="text-center text-foreground">
                 <h3 className="text-display-md text-primary mb-6 floating-element">
-                  Visszajelzés hamarosan
+                  Vagy vedd fel velünk a kapcsolatot
                 </h3>
                 <p className="text-body-elegant text-muted-foreground mb-8">
-                  Egy gyönyörű visszajelzési rendszert készítünk, hogy megerősíthesd részvételed. 
-                  Addig is, bátran keress minket közvetlenül, ha bármilyen kérdésed van.
+                  Ha bármilyen kérdésed van, vagy segítségre van szükséged a visszajelzéssel, 
+                  bátran keress minket közvetlenül!
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
@@ -304,13 +313,6 @@ const WeddingWebsite = () => {
                       <div className="text-sm text-primary">{CONTACT_EMAIL}</div>
                     </div>
                   </Button>
-                </div>
-                
-                <div className="mt-8 p-6 bg-muted/30 rounded-xl backdrop-blur-sm border border-primary/20">
-                  <p className="text-base text-muted-foreground">
-                    A visszajelzési rendszer hamarosan elérhető lesz. 
-                    Alig várjuk, hogy veletek ünnepelhessünk!
-                  </p>
                 </div>
               </div>
             </CardContent>
