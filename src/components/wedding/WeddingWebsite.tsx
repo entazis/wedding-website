@@ -271,8 +271,8 @@ const WeddingWebsite = () => {
           
           <div className="mb-12">
             <GuestForm onSuccess={() => {
-              // Scroll to top or show additional success message
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              // Keep user on the form to see success message
+              // No scrolling needed
             }} />
           </div>
           
