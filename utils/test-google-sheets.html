@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Sheets API Test</title>
+</head>
+<body>
+    <h1>Google Sheets API Test</h1>
+    
+    <div>
+        <label for="scriptUrl">Google Apps Script URL:</label><br>
+        <input type="text" id="scriptUrl" style="width: 500px;" 
+               placeholder="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec">
+    </div>
+    
+    <br>
+    
+    <button onclick="testGet()">Test GET Request</button>
+    <button onclick="testPost()">Test POST Request</button>
+    
+    <br><br>
+    
+    <div id="result" style="background: #f0f0f0; padding: 10px; min-height: 100px; white-space: pre-wrap;"></div>
+
+    <script>
+        function log(message) {
+            document.getElementById('result').textContent += message + '\n';
+        }
+
+        function clearLog() {
+            document.getElementById('result').textContent = '';
+        }
+
+        async function testGet() {
+            clearLog();
+            const url = document.getElementById('scriptUrl').value;
+            
+            if (!url) {
+                log('Please enter your Google Apps Script URL');
+                return;
+            }
+
+            log('Testing GET request to: ' + url);
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    mode: 'cors'
+                });
+                
+                log('Response status: ' + response.status);
+                log('Response headers: ' + JSON.stringify([...response.headers.entries()]));
+                
+                const text = await response.text();
+                log('Response body: ' + text);
+                
+                try {
+                    const json = JSON.parse(text);
+                    log('Parsed JSON: ' + JSON.stringify(json, null, 2));
+                } catch (e) {
+                    log('Could not parse as JSON: ' + e.message);
+                }
+                
+            } catch (error) {
+                log('Error: ' + error.message);
+                log('This usually means CORS is not configured correctly');
+            }
+        }
+
+        async function testPost() {
+            clearLog();
+            const url = document.getElementById('scriptUrl').value;
+            
+            if (!url) {
+                log('Please enter your Google Apps Script URL');
+                return;
+            }
+
+            log('Testing POST request to: ' + url);
+            
+            const formData = new FormData();
+            formData.append('name', 'Test User');
+            formData.append('email', 'test@example.com');
+            formData.append('attendance', 'yes');
+            formData.append('guestCount', '2');
+            formData.append('foodAllergies', 'None');
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'cors'
+                });
+                
+                log('Response status: ' + response.status);
+                log('Response headers: ' + JSON.stringify([...response.headers.entries()]));
+                
+                const text = await response.text();
+                log('Response body: ' + text);
+                
+                try {
+                    const json = JSON.parse(text);
+                    log('Parsed JSON: ' + JSON.stringify(json, null, 2));
+                } catch (e) {
+                    log('Could not parse as JSON: ' + e.message);
+                }
+                
+            } catch (error) {
+                log('Error: ' + error.message);
+                log('This usually means CORS is not configured correctly');
+            }
+        }
+    </script>
+</body>
+</html>

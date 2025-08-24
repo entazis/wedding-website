@@ -212,19 +212,14 @@ function createResponse(result, message, data = null) {
     response.row = data; // For backward compatibility
   }
 
-  return ContentService.createTextOutput(JSON.stringify(response))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeader("Access-Control-Allow-Origin", "*")
-    .setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-    .setHeader("Access-Control-Allow-Headers", "Content-Type");
+  return ContentService.createTextOutput(JSON.stringify(response)).setMimeType(
+    ContentService.MimeType.JSON
+  );
 }
 
 /**
  * Handles preflight OPTIONS requests for CORS
  */
 function doOptions(e) {
-  return ContentService.createTextOutput("")
-    .setHeader("Access-Control-Allow-Origin", "*")
-    .setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-    .setHeader("Access-Control-Allow-Headers", "Content-Type");
+  return ContentService.createTextOutput("");
 }
