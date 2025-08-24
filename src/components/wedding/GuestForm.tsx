@@ -18,10 +18,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { toast } from '@/components/ui/sonner';
 import { Textarea } from '@/components/ui/textarea';
 import { submitGuestFormToSheets } from '@/services/googleSheets';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AlertCircle, CheckCircle, Heart, Loader2 } from 'lucide-react';
+import { AlertCircle, Heart, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -106,8 +107,16 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
         dietaryRestrictions: data.dietaryRestrictions,
         specialRequests: data.specialRequests,
       });
-      setSubmitStatus('success');
+      
+      // Show success toast
+      toast.success('Visszajelzés elküldve! 🎉', {
+        description: 'Köszönjük a visszajelzést! Hamarosan felvesszük veled a kapcsolatot az esküvő részleteivel kapcsolatban.',
+        duration: 6000,
+      });
+      
+      // Reset form and scroll to top
       form.reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       onSuccess?.();
     } catch (error) {
       console.error('Form submission error:', error);
@@ -141,47 +150,16 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
       </CardHeader>
       
       <CardContent className="p-6 md:p-8">
-        {submitStatus === 'success' ? (
-          // Success state - only show success message
-          <div className="text-center py-6">
-            <div className="flex items-center justify-center mb-4">
-              <CheckCircle className="h-12 w-12 text-green-600 animate-pulse-slow" />
-            </div>
-            <h3 className="text-display-md text-primary mb-4">
-              Köszönjük a visszajelzést!
-            </h3>
-            <Alert className="border-green-200 bg-green-50 text-green-800 mb-6">
-              <CheckCircle className="h-4 w-4" />
-              <AlertDescription className="text-lg">
-                A visszajelzésed sikeresen elküldtük. Hamarosan felvesszük veled a kapcsolatot az esküvő részleteivel kapcsolatban.
-              </AlertDescription>
-            </Alert>
-            <div className="space-y-4 text-muted-foreground">
-              <p className="text-body-elegant">
-                Ha bármilyen kérdésed van, bátran keress minket a lenti elérhetőségeken.
-              </p>
-              <div className="flex items-center justify-center gap-4 pt-4">
-                <Heart className="text-primary animate-float" size={20} />
-                <span className="font-script text-script-lg text-primary">
-                  Alig várjuk, hogy veletek ünnepelhessünk!
-                </span>
-                <Heart className="text-primary animate-float" size={20} />
-              </div>
-            </div>
-          </div>
-        ) : (
-          // Form state - show error message (if any) and form
-          <>
-            {submitStatus === 'error' && (
-              <Alert className="mb-6 border-red-200 bg-red-50 text-red-800">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>
-                  {errorMessage}
-                </AlertDescription>
-              </Alert>
-            )}
+        {submitStatus === 'error' && (
+          <Alert className="mb-6 border-red-200 bg-red-50 text-red-800">
+            <AlertCircle className="h-4 w-4" />
+            <AlertDescription>
+              {errorMessage}
+            </AlertDescription>
+          </Alert>
+        )}
 
-            <Form {...form}> 
+        <Form {...form}> 
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             {/* Name Field */}
             <FormField
@@ -409,8 +387,6 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
             </div>
           </form>
         </Form>
-          </>
-        )}
       </CardContent>
     </Card>
   );

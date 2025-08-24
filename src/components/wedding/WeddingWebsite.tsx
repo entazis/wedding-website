@@ -270,10 +270,7 @@ const WeddingWebsite = () => {
           </h2>
           
           <div className="mb-12">
-            <GuestForm onSuccess={() => {
-              // Keep user on the form to see success message
-              // No scrolling needed
-            }} />
+            <GuestForm />
           </div>
           
           {/* Contact Information */}
