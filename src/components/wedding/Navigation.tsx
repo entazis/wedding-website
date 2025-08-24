@@ -23,11 +23,11 @@ const Navigation = () => {
   };
 
   const menuItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Our Story', id: 'story' },
-    { label: 'Details', id: 'details' },
-    { label: 'Location', id: 'location' },
-    { label: 'RSVP', id: 'rsvp' },
+    { label: 'Főoldal', id: 'home' },
+    { label: 'Történetünk', id: 'story' },
+    { label: 'Részletek', id: 'details' },
+    { label: 'Helyszín', id: 'location' },
+    { label: 'Visszajelzés', id: 'rsvp' },
   ];
 
   return (

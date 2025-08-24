@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface TimeLeft {
   days: number;
@@ -33,10 +33,10 @@ const CountdownTimer = () => {
   return (
     <div className="flex flex-wrap justify-center gap-4 md:gap-8">
       {[
-        { value: timeLeft.days, label: 'Days' },
-        { value: timeLeft.hours, label: 'Hours' },
-        { value: timeLeft.minutes, label: 'Minutes' },
-        { value: timeLeft.seconds, label: 'Seconds' },
+        { value: timeLeft.days, label: 'Nap' },
+        { value: timeLeft.hours, label: 'Óra' },
+        { value: timeLeft.minutes, label: 'Perc' },
+        { value: timeLeft.seconds, label: 'Másodperc' },
       ].map((item, index) => (
         <div key={item.label} className="text-center">
           <div className="wedding-card bg-background/60 backdrop-blur-md border-2 border-primary/20 min-w-[70px] md:min-w-[90px]">

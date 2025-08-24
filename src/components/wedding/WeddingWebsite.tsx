@@ -38,7 +38,7 @@ const WeddingWebsite = () => {
               <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
             </div>
             <p className="font-display text-xl md:text-2xl text-muted-foreground mb-8">
-              May 1st, 2026 • Deák Udvarház, Kakucs
+              2026. május 1. • Deák Udvarház, Kakucs
             </p>
           </div>
           
@@ -51,7 +51,7 @@ const WeddingWebsite = () => {
               onClick={() => scrollToSection('rsvp')}
               className="wedding-button text-lg px-8 py-4"
             >
-              RSVP Now
+              Visszajelzés most
             </Button>
           </div>
         </div>
@@ -61,22 +61,22 @@ const WeddingWebsite = () => {
       <section id="story" className="section-spacing bg-gradient-section">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-12">
-            Our Love Story
+            Szerelmünk története
           </h2>
           <Card className="wedding-card bg-card/60 backdrop-blur-sm">
             <CardContent className="p-8 md:p-12">
               <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p className="text-xl leading-relaxed mb-6">
-                  Our story is still being written, but what we know for sure is that 
-                  May 1st, 2026 will be the most beautiful chapter yet.
+                  Történetünk még íródik, de azt biztosan tudjuk, hogy 
+                  2026. május 1-je lesz a legszebb fejezet.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  We can't wait to share all the details of how we met, 
-                  fell in love, and decided to spend forever together. 
-                  Check back soon for the full story of our journey to this special day.
+                  Alig várjuk, hogy megosszuk veletek, hogyan találkoztunk, 
+                  szerettünk egymásba, és döntöttünk úgy, hogy együtt töltjük az életet. 
+                  Hamarosan itt lesz utazásunk teljes története ehhez a különleges naphoz.
                 </p>
                 <div className="mt-8 text-primary font-medium">
-                  Coming soon...
+                  Hamarosan...
                 </div>
               </div>
             </CardContent>
@@ -88,7 +88,7 @@ const WeddingWebsite = () => {
       <section id="details" className="section-spacing">
         <div className="container mx-auto max-w-6xl">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary text-center mb-16">
-            Wedding Details
+            Esküvő részletei
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -97,15 +97,15 @@ const WeddingWebsite = () => {
                 <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <Calendar className="text-primary" size={32} />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Temple Ceremony</h3>
+                <h3 className="font-display text-2xl font-bold text-primary mb-4">Templomi szertartás</h3>
                 <div className="space-y-2 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2">
                     <Calendar size={16} />
-                    May 1st, 2026 (Friday)
+                    2026. május 1. (péntek)
                   </p>
                   <p className="flex items-center justify-center gap-2">
                     <Clock size={16} />
-                    3:00 PM
+                    15:00
                   </p>
                 </div>
               </CardContent>
@@ -116,15 +116,15 @@ const WeddingWebsite = () => {
                 <div className="bg-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <Heart className="text-secondary" size={32} />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Civil Ceremony</h3>
+                <h3 className="font-display text-2xl font-bold text-primary mb-4">Polgári szertartás</h3>
                 <div className="space-y-2 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2">
                     <Calendar size={16} />
-                    May 1st, 2026 (Friday)
+                    2026. május 1. (péntek)
                   </p>
                   <p className="flex items-center justify-center gap-2">
                     <Clock size={16} />
-                    5:00 PM
+                    17:00
                   </p>
                 </div>
               </CardContent>
@@ -135,15 +135,15 @@ const WeddingWebsite = () => {
                 <div className="bg-wedding-gold/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <Clock className="text-wedding-gold" size={32} />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-primary mb-4">Reception Dinner</h3>
+                <h3 className="font-display text-2xl font-bold text-primary mb-4">Vacsora és buli</h3>
                 <div className="space-y-2 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2">
                     <Calendar size={16} />
-                    May 1st, 2026 (Friday)
+                    2026. május 1. (péntek)
                   </p>
                   <p className="flex items-center justify-center gap-2">
                     <Clock size={16} />
-                    7:00 PM
+                    19:00
                   </p>
                 </div>
               </CardContent>
@@ -156,7 +156,7 @@ const WeddingWebsite = () => {
       <section id="location" className="section-spacing bg-gradient-section">
         <div className="container mx-auto max-w-6xl">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary text-center mb-16">
-            Venue & Location
+            Helyszín
           </h2>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -167,11 +167,11 @@ const WeddingWebsite = () => {
                   <div className="space-y-4 text-muted-foreground">
                     <p className="flex items-start gap-3">
                       <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
-                      <span>Kakucs, Hungary</span>
+                      <span>Kakucs, Magyarország</span>
                     </p>
                     <p className="text-lg leading-relaxed">
-                      A beautiful historic venue surrounded by gardens and natural beauty, 
-                      perfect for our spring wildflower themed celebration.
+                      Egy gyönyörű történelmi helyszín, amelyet kertek és természeti szépség vesz körül, 
+                      tökéletes tavaszi vadvirágos témájú ünneplésünkhöz.
                     </p>
                     <div className="pt-4">
                       <Button 
@@ -180,7 +180,7 @@ const WeddingWebsite = () => {
                         className="w-full"
                       >
                         <MapPin size={16} className="mr-2" />
-                        View on Map
+                        Megtekintés térképen
                       </Button>
                     </div>
                     <div className="pt-2">
@@ -189,7 +189,7 @@ const WeddingWebsite = () => {
                         variant="outline"
                         className="w-full"
                       >
-                        Visit Venue Website
+                        Helyszín weboldala
                       </Button>
                     </div>
                   </div>
@@ -200,7 +200,7 @@ const WeddingWebsite = () => {
             <div className="relative">
               <img 
                 src={venueImage} 
-                alt="Deák Udvarház - Wedding Venue" 
+                alt="Deák Udvarház - Esküvői helyszín" 
                 className="rounded-xl shadow-elegant w-full h-[400px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-xl"></div>
@@ -213,18 +213,18 @@ const WeddingWebsite = () => {
       <section className="section-spacing">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary mb-12">
-            Travel & Stay
+            Utazás és szállás
           </h2>
           <Card className="wedding-card">
             <CardContent className="p-8 md:p-12">
               <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p className="text-xl leading-relaxed mb-6">
-                  We're working on gathering the best recommendations for 
-                  hotels, transportation, and local attractions to make 
-                  your visit as comfortable and enjoyable as possible.
+                  Dolgozunk azon, hogy összegyűjtsük a legjobb ajánlásokat 
+                  szállodákról, közlekedésről és helyi látnivalókról, hogy 
+                  látogatásotok a lehető legkényelmesebb és legélvezetesebb legyen.
                 </p>
                 <div className="text-primary font-medium text-lg">
-                  Accommodation details coming soon...
+                  Szállás részletek hamarosan...
                 </div>
               </div>
             </CardContent>
@@ -236,35 +236,35 @@ const WeddingWebsite = () => {
       <section id="rsvp" className="section-spacing bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-12">
-            Join Our Celebration
+            Csatlakozz az ünnepléshez
           </h2>
           
           <Card className="wedding-card bg-background/95 backdrop-blur-sm border-primary/20">
             <CardContent className="p-8 md:p-12">
               <div className="text-center text-foreground">
                 <h3 className="font-display text-2xl font-bold text-primary mb-6">
-                  RSVP Coming Soon
+                  Visszajelzés hamarosan
                 </h3>
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  We're preparing a beautiful RSVP system for you to confirm your attendance. 
-                  In the meantime, feel free to reach out to us directly with any questions.
+                  Egy gyönyörű visszajelzési rendszert készítünk, hogy megerősíthesd részvételed. 
+                  Addig is, bátran keress minket közvetlenül, ha bármilyen kérdésed van.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
                   <div className="flex items-center justify-center gap-3 text-muted-foreground">
                     <Phone size={20} className="text-primary" />
-                    <span>Contact us by phone</span>
+                    <span>Hívj fel minket</span>
                   </div>
                   <div className="flex items-center justify-center gap-3 text-muted-foreground">
                     <Mail size={20} className="text-primary" />
-                    <span>Send us an email</span>
+                    <span>Írj nekünk emailt</span>
                   </div>
                 </div>
                 
                 <div className="mt-8 p-4 bg-muted/50 rounded-lg">
                   <p className="text-sm text-muted-foreground">
-                    RSVP system will be available soon. 
-                    We can't wait to celebrate with you!
+                    A visszajelzési rendszer hamarosan elérhető lesz. 
+                    Alig várjuk, hogy veletek ünnepelhessünk!
                   </p>
                 </div>
               </div>
@@ -285,7 +285,7 @@ const WeddingWebsite = () => {
             Barbi & Bence
           </p>
           <p className="text-muted-foreground">
-            May 1st, 2026 • Deák Udvarház, Kakucs
+            2026. május 1. • Deák Udvarház, Kakucs
           </p>
         </div>
       </footer>
