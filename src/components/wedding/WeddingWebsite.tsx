@@ -106,7 +106,7 @@ const WeddingWebsite = () => {
                 <div className="space-y-3 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2 text-lg">
                     <Calendar size={18} />
-                    2026. május 1. (péntek)
+                    2026. május 1.
                   </p>
                   <p className="flex items-center justify-center gap-2 text-lg">
                     <Clock size={18} />
@@ -125,7 +125,7 @@ const WeddingWebsite = () => {
                 <div className="space-y-3 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2 text-lg">
                     <Calendar size={18} />
-                    2026. május 1. (péntek)
+                    2026. május 1.
                   </p>
                   <p className="flex items-center justify-center gap-2 text-lg">
                     <Clock size={18} />
@@ -144,7 +144,7 @@ const WeddingWebsite = () => {
                 <div className="space-y-3 text-muted-foreground">
                   <p className="flex items-center justify-center gap-2 text-lg">
                     <Calendar size={18} />
-                    2026. május 1. (péntek)
+                    2026. május 1.
                   </p>
                   <p className="flex items-center justify-center gap-2 text-lg">
                     <Clock size={18} />
