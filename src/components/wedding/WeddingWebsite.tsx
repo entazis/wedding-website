@@ -24,20 +24,20 @@ const WeddingWebsite = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background/60"></div>
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="animate-fade-in">
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-4">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 drop-shadow-lg">
               Barbi & Bence
             </h1>
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
-              <Heart className="text-primary animate-pulse-slow" size={24} />
-              <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
+              <div className="h-px bg-white/40 flex-1 max-w-20"></div>
+              <Heart className="text-white animate-pulse-slow drop-shadow-md" size={24} />
+              <div className="h-px bg-white/40 flex-1 max-w-20"></div>
             </div>
-            <p className="font-display text-xl md:text-2xl text-muted-foreground mb-8">
+            <p className="font-display text-xl md:text-2xl text-white/90 mb-8 drop-shadow-md">
               2026. május 1. • Deák Udvarház, Kakucs
             </p>
           </div>
