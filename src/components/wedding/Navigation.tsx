@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const Navigation = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -40,7 +40,7 @@ const Navigation = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="font-display text-xl md:text-2xl font-bold text-primary">
-              V & B
+              B & B
             </div>
 
             {/* Desktop Menu */}

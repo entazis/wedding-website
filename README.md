@@ -1,4 +1,4 @@
-# Wedding Website - Viktória & Bence
+# Wedding Website - Barbi & Bence
 
 A beautiful wedding website built with modern web technologies for Viktória Barbara Pintér & Bence Szabó's wedding on May 1st, 2026.
 

@@ -1,11 +1,10 @@
-import React from 'react';
-import { Calendar, Clock, MapPin, Heart, Phone, Mail } from 'lucide-react';
-import Navigation from './Navigation';
-import CountdownTimer from './CountdownTimer';
 import heroImage from '@/assets/hero-wedding.jpg';
 import venueImage from '@/assets/venue-photo.jpg';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Calendar, Clock, Heart, Mail, MapPin, Phone } from 'lucide-react';
+import CountdownTimer from './CountdownTimer';
+import Navigation from './Navigation';
 
 const WeddingWebsite = () => {
   const scrollToSection = (sectionId: string) => {
@@ -31,7 +30,7 @@ const WeddingWebsite = () => {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="animate-fade-in">
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-4">
-              Viktória & Bence
+              Barbi & Bence
             </h1>
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
@@ -283,7 +282,7 @@ const WeddingWebsite = () => {
             <div className="h-px bg-primary/30 flex-1 max-w-20"></div>
           </div>
           <p className="font-display text-lg text-primary font-medium mb-2">
-            Viktória & Bence
+            Barbi & Bence
           </p>
           <p className="text-muted-foreground">
             May 1st, 2026 • Deák Udvarház, Kakucs
