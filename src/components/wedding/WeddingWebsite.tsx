@@ -8,9 +8,9 @@ import GuestForm from './GuestForm';
 import Navigation from './Navigation';
 
 const WeddingWebsite = () => {
-  // Contact information
-  const CONTACT_PHONE = '+36 30 509 5330';
-  const CONTACT_EMAIL = 'hello@barbiesbence.hu';
+  // Contact information from environment variables
+  const CONTACT_PHONE = import.meta.env.VITE_CONTACT_PHONE;
+  const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL;
 
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
