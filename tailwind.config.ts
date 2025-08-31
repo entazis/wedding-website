@@ -65,9 +65,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Playfair Display", "serif"],
+        display: ["Cormorant Garamond", "serif"],
         body: ["Inter", "system-ui", "sans-serif"],
-        script: ["Dancing Script", "cursive"],
+        script: ["Eyesome Script", "cursive"],
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",

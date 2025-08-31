@@ -19,17 +19,17 @@ All colors MUST be HSL.
     --popover: 20 40% 97%;
     --popover-foreground: 20 20% 15%;
 
-    /* Romantic blush pink as primary */
-    --primary: 340 75% 75%;
+    /* Mauve pink as primary */
+    --primary: 315 37% 63%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 340 85% 85%;
-    --primary-dark: 340 65% 65%;
+    --primary-light: 315 47% 73%;
+    --primary-dark: 315 27% 53%;
 
-    /* Sage green as secondary */
-    --secondary: 100 25% 70%;
-    --secondary-foreground: 20 20% 15%;
-    --secondary-light: 100 35% 80%;
-    --secondary-dark: 100 20% 60%;
+    /* Golden brown as secondary */
+    --secondary: 44 85% 31%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 44 85% 41%;
+    --secondary-dark: 44 85% 21%;
 
     /* Warm creams and soft tones */
     --muted: 30 30% 92%;
@@ -48,11 +48,11 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Wedding-specific colors */
-    --wedding-blush: 340 75% 75%;
-    --wedding-sage: 100 25% 70%;
+    --wedding-blush: 315 37% 63%;
+    --wedding-sage: 44 85% 31%;
     --wedding-cream: 30 50% 95%;
-    --wedding-gold: 45 85% 70%;
-    --wedding-rose: 350 70% 80%;
+    --wedding-gold: 44 85% 41%;
+    --wedding-rose: 315 47% 73%;
 
     /* Beautiful gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--wedding-blush)), hsl(var(--wedding-rose)));
@@ -146,11 +146,11 @@ All colors MUST be HSL.
 /* Typography Classes */
 @layer components {
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-feature-settings: "kern", "liga", "dlig", "swsh", "hist";
     font-variant-ligatures: discretionary-ligatures;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
   }
   
   .font-body {
@@ -161,9 +161,9 @@ All colors MUST be HSL.
   }
 
   .font-script {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Eyesome Script', cursive;
     font-feature-settings: "kern", "liga", "swsh", "calt";
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     line-height: 1.4;
   }
 
