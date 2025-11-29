@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Spring Wildflower Wedding Design System
-Beautiful spring colors, romantic gradients, and elegant typography.
+/* Autumn Engagement Wedding Design System
+Rich burgundy, teal, and golden autumn colors inspired by your engagement photo.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Spring Wildflower Color Palette */
+    /* Autumn Engagement Color Palette */
     --background: 30 50% 98%;
     --foreground: 20 20% 15%;
 
@@ -19,55 +19,55 @@ All colors MUST be HSL.
     --popover: 20 40% 97%;
     --popover-foreground: 20 20% 15%;
 
-    /* Mauve pink as primary */
-    --primary: 315 37% 63%;
+    /* Soft plum/wine as primary (matching engagement photo) */
+    --primary: 340 45% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 315 47% 73%;
-    --primary-dark: 315 27% 53%;
+    --primary-light: 340 35% 45%;
+    --primary-dark: 340 55% 25%;
 
-    /* Golden brown as secondary */
-    --secondary: 44 85% 31%;
+    /* Deep forest teal as secondary (matching engagement photo) */
+    --secondary: 165 45% 30%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 44 85% 41%;
-    --secondary-dark: 44 85% 21%;
+    --secondary-light: 165 35% 40%;
+    --secondary-dark: 165 55% 20%;
 
     /* Warm creams and soft tones */
-    --muted: 30 30% 92%;
-    --muted-foreground: 20 15% 45%;
+    --muted: 40 20% 92%;
+    --muted-foreground: 30 15% 45%;
 
-    --accent: 50 60% 88%;
-    --accent-foreground: 20 20% 15%;
+    --accent: 40 40% 85%;
+    --accent-foreground: 30 20% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 340 75% 75%;
+    --border: 40 12% 88%;
+    --input: 40 12% 88%;
+    --ring: 340 45% 35%;
 
     --radius: 0.75rem;
 
-    /* Wedding-specific colors */
-    --wedding-blush: 315 37% 63%;
-    --wedding-sage: 44 85% 31%;
-    --wedding-cream: 30 50% 95%;
-    --wedding-gold: 44 85% 41%;
-    --wedding-rose: 315 47% 73%;
+    /* Wedding-specific engagement photo colors */
+    --wedding-plum: 340 45% 35%;
+    --wedding-forest: 165 45% 30%;
+    --wedding-cream: 40 30% 95%;
+    --wedding-gold: 40 60% 70%;
+    --wedding-amber: 45 50% 75%;
 
-    /* Beautiful gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--wedding-blush)), hsl(var(--wedding-rose)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--wedding-sage)), hsl(var(--secondary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--wedding-cream)), hsl(var(--wedding-blush) / 0.3));
-    --gradient-section: linear-gradient(180deg, transparent, hsl(var(--wedding-cream) / 0.5));
-    --gradient-section-alt: linear-gradient(135deg, hsl(var(--wedding-cream) / 0.8), hsl(var(--wedding-blush) / 0.1));
-    --gradient-romantic: linear-gradient(45deg, hsl(var(--wedding-rose) / 0.1), hsl(var(--wedding-blush) / 0.2), hsl(var(--wedding-cream) / 0.3));
-    --gradient-sage: linear-gradient(135deg, hsl(var(--wedding-sage) / 0.2), hsl(var(--secondary-light) / 0.3));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--wedding-gold) / 0.1), hsl(var(--wedding-cream) / 0.4));
+    /* Beautiful engagement photo gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--wedding-plum)), hsl(var(--wedding-amber)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--wedding-forest)), hsl(var(--secondary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--wedding-cream)), hsl(var(--wedding-plum) / 0.2));
+    --gradient-section: linear-gradient(180deg, transparent, hsl(var(--wedding-cream) / 0.4));
+    --gradient-section-alt: linear-gradient(135deg, hsl(var(--wedding-cream) / 0.9), hsl(var(--wedding-plum) / 0.08));
+    --gradient-romantic: linear-gradient(45deg, hsl(var(--wedding-amber) / 0.08), hsl(var(--wedding-plum) / 0.15), hsl(var(--wedding-cream) / 0.4));
+    --gradient-sage: linear-gradient(135deg, hsl(var(--wedding-forest) / 0.15), hsl(var(--secondary-light) / 0.25));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--wedding-gold) / 0.08), hsl(var(--wedding-cream) / 0.5));
 
     /* Elegant shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--wedding-blush) / 0.15);
-    --shadow-elegant: 0 8px 40px hsl(var(--wedding-blush) / 0.2);
-    --shadow-glow: 0 0 30px hsl(var(--wedding-blush) / 0.3);
+    --shadow-soft: 0 4px 20px hsl(var(--wedding-plum) / 0.12);
+    --shadow-elegant: 0 8px 40px hsl(var(--wedding-plum) / 0.18);
+    --shadow-glow: 0 0 30px hsl(var(--wedding-plum) / 0.25);
 
     /* Smooth transitions */
     --transition-elegant: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -101,11 +101,11 @@ All colors MUST be HSL.
     --popover: 20 25% 12%;
     --popover-foreground: 30 50% 95%;
 
-    --primary: 340 75% 70%;
+    --primary: 340 45% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 100 20% 25%;
-    --secondary-foreground: 30 50% 95%;
+    --secondary: 165 45% 35%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 20 15% 18%;
     --muted-foreground: 30 25% 65%;
@@ -118,13 +118,13 @@ All colors MUST be HSL.
 
     --border: 20 15% 20%;
     --input: 20 15% 20%;
-    --ring: 340 75% 70%;
+    --ring: 340 45% 45%;
 
-    --wedding-blush: 340 75% 70%;
-    --wedding-sage: 100 20% 30%;
-    --wedding-cream: 20 20% 15%;
-    --wedding-gold: 45 75% 60%;
-    --wedding-rose: 350 65% 75%;
+    --wedding-plum: 340 45% 45%;
+    --wedding-forest: 165 45% 35%;
+    --wedding-cream: 30 15% 15%;
+    --wedding-gold: 40 60% 65%;
+    --wedding-amber: 45 50% 70%;
   }
 }
 
@@ -296,7 +296,7 @@ All colors MUST be HSL.
     transform: translate(-50%, -50%);
     width: 100px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, hsl(var(--wedding-blush)), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--wedding-plum)), transparent);
   }
 
   .section-divider::after {
@@ -305,7 +305,7 @@ All colors MUST be HSL.
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: hsl(var(--wedding-blush));
+    color: hsl(var(--wedding-plum));
     font-size: 1.5rem;
     background: hsl(var(--background));
     padding: 0 1rem;
@@ -350,9 +350,9 @@ All colors MUST be HSL.
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: radial-gradient(circle at 20% 80%, hsl(var(--wedding-blush) / 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, hsl(var(--wedding-sage) / 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 40% 40%, hsl(var(--wedding-rose) / 0.05) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 20% 80%, hsl(var(--wedding-plum) / 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, hsl(var(--wedding-forest) / 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 40%, hsl(var(--wedding-amber) / 0.04) 0%, transparent 50%);
     pointer-events: none;
   }
 }

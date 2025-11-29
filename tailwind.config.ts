@@ -57,11 +57,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         wedding: {
-          blush: "hsl(var(--wedding-blush))",
-          sage: "hsl(var(--wedding-sage))",
+          plum: "hsl(var(--wedding-plum))",
+          forest: "hsl(var(--wedding-forest))",
           cream: "hsl(var(--wedding-cream))",
           gold: "hsl(var(--wedding-gold))",
-          rose: "hsl(var(--wedding-rose))",
+          amber: "hsl(var(--wedding-amber))",
         },
       },
       fontFamily: {

@@ -1,4 +1,4 @@
-import heroImage from '@/assets/hero-wedding.jpg';
+import heroImage from '@/assets/engagement.png';
 import venueImage from '@/assets/venue-photo.jpg';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
