@@ -1,4 +1,4 @@
-import heroImage from '@/assets/engagement.png';
+import heroImage from '@/assets/IMG_3054.jpg';
 import venueImage from '@/assets/venue-photo.jpg';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -36,8 +36,11 @@ const WeddingWebsite = () => {
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{ 
+            backgroundImage: `url(${heroImage})`,
+            backgroundPosition: 'center 80%'
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background/60"></div>
         </div>
