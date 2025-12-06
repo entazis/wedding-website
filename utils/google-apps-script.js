@@ -16,6 +16,7 @@
 // Configuration - Update these values
 const SHEET_NAME = "Guest Responses"; // Name of the sheet tab
 const NOTIFICATION_EMAIL = "hello@barbiesbence.hu"; // Email for notifications
+const CC_EMAIL = "szabo.bence.tat@gmail.com"; // Email for CC
 
 /**
  * Handles POST requests from the wedding website form
@@ -188,8 +189,9 @@ Ez egy automatikus értesítés az esküvői visszajelzési rendszerből.
 
     MailApp.sendEmail({
       to: NOTIFICATION_EMAIL,
-      subject: subject,
-      body: body,
+      cc: CC_EMAIL,
+      subject,
+      body,
     });
   } catch (error) {
     console.error("Error sending notification email:", error);
