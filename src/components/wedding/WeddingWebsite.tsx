@@ -1,8 +1,9 @@
+import venueImage from '@/assets/deak.jpeg';
 import heroImageMobile from '@/assets/IMG_2705.jpg';
 import programImage from '@/assets/IMG_2862.jpg';
+import travelImage from '@/assets/IMG_2919.jpg';
 import footerImage from '@/assets/IMG_3054.jpg';
 import heroImage from '@/assets/IMG_3102.jpg';
-import venueImage from '@/assets/deak.jpeg';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
@@ -218,13 +219,33 @@ const WeddingWebsite = () => {
       </section>
 
       {/* Travel & Accommodation Section */}
-      <section className="section-spacing bg-gradient-section-alt pattern-overlay">
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <div className="section-divider mb-8"></div>
+      <section className="section-spacing bg-gradient-section-alt pattern-overlay relative overflow-hidden">
+        {/* Background image */}
+        <img 
+          src={travelImage}
+          alt="Utazás és szállás háttér"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ 
+            objectPosition: '50% center',
+            transform: 'translateY(-10%)',
+            height: '120%'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80"></div>
+        
+        <div className="container mx-auto max-w-4xl text-center relative z-10 pt-12">
+          {/* <div className="section-divider mb-8"></div> */}
           <h2 className="text-display-lg text-primary mb-12 floating-element">
             Utazás és szállás
           </h2>
-          <Card className="wedding-card-enhanced">
+          <Card 
+            className="backdrop-blur-md border-primary/20 rounded-2xl p-8"
+            style={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              boxShadow: 'var(--shadow-elegant)',
+              transition: 'var(--transition-elegant)'
+            }}
+          >
             <CardContent className="p-8 md:p-12">
               <div className="max-w-none text-muted-foreground">
                 <p className="text-body-lg mb-6">
