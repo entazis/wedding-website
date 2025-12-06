@@ -39,7 +39,9 @@ const Navigation = () => {
       }`}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className={`font-script text-script-lg transition-colors duration-300 ${
+            <div 
+              onClick={() => scrollToSection('home')}
+              className={`font-script text-script-lg transition-colors duration-300 cursor-pointer ${
               isSticky ? 'text-primary' : 'text-wedding-khaki'
             }`}>
               B & B
