@@ -1,15 +1,16 @@
+import { useIsMobile } from '@/hooks/use-mobile';
 import {
-    Cake,
-    Camera,
-    Car,
-    Church,
-    Gamepad2,
-    Heart,
-    Home,
-    Moon,
-    Music,
-    PartyPopper,
-    UtensilsCrossed
+  Cake,
+  Camera,
+  Car,
+  Church,
+  Gamepad2,
+  Heart,
+  Home,
+  Moon,
+  Music,
+  PartyPopper,
+  UtensilsCrossed
 } from 'lucide-react';
   
   interface TimelineEvent {
@@ -89,26 +90,43 @@ import {
   ];
   
   const Timeline = () => {
+    const isMobile = useIsMobile();
+    
     return (
       <div className="relative max-w-3xl mx-auto">
         {/* Vertical line */}
         <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 md:-translate-x-px"></div>
         
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-0">
           {timelineEvents.map((event, index) => (
             <div 
               key={index}
               className={`relative flex items-start gap-6 md:gap-8 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
+              style={{ 
+                marginTop: index > 0 ? (isMobile ? '24px' : '-70px') : undefined 
+              }}
             >
-              {/* Timeline dot */}
-              <div className="absolute left-6 md:left-1/2 w-3 h-3 bg-primary rounded-full shadow-glow -translate-x-1/2 mt-8 z-10 ring-4 ring-background"></div>
+              {/* Connecting line from dot to card */}
+              {index % 2 === 0 ? (
+                // Left-side cards: line from right edge of card to dot (center)
+                <div className="absolute top-1/2 -translate-y-1/2 left-6 md:left-[calc(50%-2rem-2rem)] md:right-1/2 h-px bg-primary/40 z-[5] w-6 md:w-auto"></div>
+              ) : (
+                // Right-side cards: line from dot (center) to left edge of card  
+                <div className="absolute top-1/2 -translate-y-1/2 left-6 md:left-1/2 md:right-[calc(50%-2rem-2rem)] h-px bg-primary/40 z-[5] w-6 md:w-auto"></div>
+              )}
+              
+              {/* Timeline dot - positioned on the timeline line, vertically centered on the card */}
+              <div className="absolute left-6 md:left-1/2 w-3 h-3 bg-primary rounded-full shadow-glow -translate-x-1/2 top-1/2 -translate-y-1/2 z-10 ring-4 ring-background"></div>
               
               {/* Content card */}
-              <div className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+              <div 
+                className={`relative ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8 z-20' : 'md:pl-8 z-30'}`}
+                style={{ zIndex: index % 2 === 0 ? 20 : 30 }}
+              >
                 <div 
-                  className="group relative bg-card/80 backdrop-blur-sm border border-border/30 rounded-2xl p-6 transition-all duration-500 hover:shadow-elegant hover:-translate-y-1"
+                  className="group relative bg-card/80 backdrop-blur-sm border border-border/30 rounded-2xl p-3 md:p-4 transition-all duration-500 hover:shadow-elegant hover:-translate-y-1"
                   style={{
                     animationDelay: `${index * 0.1}s`
                   }}
@@ -148,7 +166,7 @@ import {
         </div>
         
         {/* End decoration */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-6">
           <div className="flex items-center gap-3">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary/40"></div>
             <Heart className="w-6 h-6 text-primary animate-pulse" />
