@@ -172,8 +172,13 @@ const WeddingWebsite = () => {
                       <span>Kakucs, Magyarország</span>
                     </p>
                     <p className="text-body-elegant">
-                      Egy gyönyörű történelmi helyszín, amelyet kertek és természeti szépség vesz körül, 
-                      tökéletes tavaszi vadvirágos témájú ünneplésünkhöz.
+                    A Budapesttől alig félórányi autóútra található kakucsi Deák Udvarház egy csodálatos, vidéki eleganciát és romantikát árasztó birtok. A kerti virágpompa, a legelésző pónik és a kis tavacska tökéletes hátteret adnak a Nagy Napnak, amelyet a finom ízek, a házigazdák vendégszeretete és a vintage stílus tesznek teljessé.
+                    <br />
+                    <br />
+                    Örömmel vesszük, ha a májusi, virágos esküvőnk hangulatához igazodva színes, pasztell öltözetben érkeztek.
+                    <br />
+                    <br />
+                    Alig várjuk, hogy együtt ünnepeljünk!
                     </p>
                     <div className="pt-6 space-y-3">
                       <Button 
