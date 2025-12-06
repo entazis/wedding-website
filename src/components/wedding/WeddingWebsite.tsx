@@ -1,4 +1,5 @@
 import heroImageMobile from '@/assets/IMG_2705.jpg';
+import footerImage from '@/assets/IMG_3054.jpg';
 import heroImage from '@/assets/IMG_3102.jpg';
 import venueImage from '@/assets/venue-photo.jpg';
 import { Button } from '@/components/ui/button';
@@ -337,23 +338,33 @@ const WeddingWebsite = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-gradient-romantic pattern-overlay border-t border-primary/20">
+      <footer className="relative py-16 overflow-hidden border-t border-primary/20">
+        <img 
+          src={footerImage}
+          alt="Barbi & Bence"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ 
+            objectPosition: '90% 100%',
+            transform: 'scale(1.1)'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
         <div className="container mx-auto text-center relative z-10">
-          <div className="section-divider mb-8"></div>
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px bg-primary/40 flex-1 max-w-32"></div>
-            <Heart className="text-primary animate-float shadow-glow" size={28} />
-            <div className="h-px bg-primary/40 flex-1 max-w-32"></div>
+            <div className="h-px bg-white/60 flex-1 max-w-32"></div>
+            <Heart className="text-white animate-float shadow-glow" size={28} />
+            <div className="h-px bg-white/60 flex-1 max-w-32"></div>
           </div>
-          <p className="font-script text-script-xl text-primary mb-4 floating-element">
+          <p className="font-script text-script-xl text-white mb-4 floating-element drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             Barbi & Bence
           </p>
-          <p className="text-body-lg text-muted-foreground mb-6">
+          <div className="mb-40"></div>
+          {/* <p className="text-body-lg text-white/90 mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             2026. május 1. • Deák Udvarház, Kakucs
-          </p>
-          <div className="bg-background/60 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
+          </p> */}
+          <div className="bg-background/70 backdrop-sm rounded-xl p-6 max-w-md mx-auto">
             <p className="font-script text-script-lg text-primary">
-              Szeretettel várunk minden kedves vendéget
+              Szeretettel várunk, ott tali!
             </p>
           </div>
         </div>
