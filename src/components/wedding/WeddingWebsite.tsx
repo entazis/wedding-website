@@ -4,10 +4,11 @@ import heroImage from '@/assets/IMG_3102.jpg';
 import venueImage from '@/assets/venue-photo.jpg';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, Clock, Heart, Mail, MapPin, Phone } from 'lucide-react';
+import { Heart, Mail, MapPin, Phone } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import GuestForm from './GuestForm';
 import Navigation from './Navigation';
+import Timeline from './Timeline';
 
 const WeddingWebsite = () => {
   // Contact information from environment variables
@@ -123,72 +124,19 @@ const WeddingWebsite = () => {
         </div>
       </section>
 
-      {/* Event Details Section */}
-      <section id="details" className="section-spacing bg-gradient-sage pattern-overlay">
-        <div className="container mx-auto max-w-6xl relative z-10">
+      {/* Event Details Section - Timeline */}
+      <section id="details" className="section-spacing bg-gradient-sage pattern-overlay relative overflow-hidden">
+        <div className="container mx-auto max-w-4xl relative z-10">
           <div className="section-divider mb-8"></div>
-          <h2 className="text-display-lg text-primary text-center mb-16 floating-element">
-            Esküvő részletei
-          </h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="wedding-card-enhanced text-center floating-element">
-              <CardContent className="p-8">
-                <div className="bg-primary/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-soft">
-                  <Calendar className="text-primary" size={36} />
-                </div>
-                <h3 className="text-display-md text-primary mb-4">Templomi szertartás</h3>
-                <div className="space-y-3 text-muted-foreground">
-                  <p className="flex items-center justify-center gap-2 text-lg">
-                    <Calendar size={18} />
-                    2026. május 1.
-                  </p>
-                  <p className="flex items-center justify-center gap-2 text-lg">
-                    <Clock size={18} />
-                    15:00
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="wedding-card-enhanced text-center floating-element">
-              <CardContent className="p-8">
-                <div className="bg-secondary/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-soft">
-                  <Heart className="text-secondary" size={36} />
-                </div>
-                <h3 className="text-display-md text-primary mb-4">Polgári szertartás</h3>
-                <div className="space-y-3 text-muted-foreground">
-                  <p className="flex items-center justify-center gap-2 text-lg">
-                    <Calendar size={18} />
-                    2026. május 1.
-                  </p>
-                  <p className="flex items-center justify-center gap-2 text-lg">
-                    <Clock size={18} />
-                    17:00
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="wedding-card-enhanced text-center floating-element">
-              <CardContent className="p-8">
-                <div className="bg-wedding-gold/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-soft">
-                  <Clock className="text-wedding-gold" size={36} />
-                </div>
-                <h3 className="text-display-md text-primary mb-4">Vacsora és buli</h3>
-                <div className="space-y-3 text-muted-foreground">
-                  <p className="flex items-center justify-center gap-2 text-lg">
-                    <Calendar size={18} />
-                    2026. május 1.
-                  </p>
-                  <p className="flex items-center justify-center gap-2 text-lg">
-                    <Clock size={18} />
-                    19:00
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          <h2 className="text-display-lg text-primary text-center mb-6 floating-element">
+            Programterv
+          </h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-xl mx-auto font-script text-xl">
+            2026. május 1. • Kakucs
+          </p>
+          
+          <Timeline />
         </div>
       </section>
 
