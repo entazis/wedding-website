@@ -136,7 +136,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-body;
-    font-feature-settings: "kern", "liga", "clig", "calt";
+    font-feature-settings: "kern", "liga", "swsh", "calt";
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -155,10 +155,10 @@ All colors MUST be HSL.
   }
   
   .font-body {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: "kern", "liga", "clig", "calt", "case", "cpsp";
-    letter-spacing: -0.01em;
-    line-height: 1.6;
+    font-family: 'Eyesome Script', cursive;
+    font-feature-settings: "kern", "liga", "swsh", "calt";
+    letter-spacing: 0.01em;
+    line-height: 1.4;
   }
 
   .font-script {

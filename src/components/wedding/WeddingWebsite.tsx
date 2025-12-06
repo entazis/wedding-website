@@ -127,7 +127,7 @@ const WeddingWebsite = () => {
       {/* Event Details Section - Timeline */}
       <section id="details" className="section-spacing bg-gradient-sage pattern-overlay relative overflow-hidden">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="section-divider mb-8"></div>
+          {/* <div className="section-divider mb-8"></div> */}
           
           <h2 className="text-display-lg text-primary text-center mb-6 floating-element">
             Programterv

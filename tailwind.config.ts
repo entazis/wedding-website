@@ -67,7 +67,7 @@ export default {
       },
       fontFamily: {
         display: ["Cormorant Garamond", "serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
+        body: ["Eyesome Script", "cursive"],
         script: ["Eyesome Script", "cursive"],
       },
       backgroundImage: {
