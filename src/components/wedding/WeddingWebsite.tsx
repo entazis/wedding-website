@@ -243,27 +243,204 @@ const WeddingWebsite = () => {
           <h2 className="text-display-lg text-primary mb-12 floating-element">
             Utazás és szállás
           </h2>
-          <Card 
-            className="backdrop-blur-md border-primary/20 rounded-2xl p-8"
-            style={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.3)',
-              boxShadow: 'var(--shadow-elegant)',
-              transition: 'var(--transition-elegant)'
-            }}
-          >
-            <CardContent className="p-8 md:p-12">
-              <div className="max-w-none text-muted-foreground">
-                <p className="text-body-lg mb-6">
-                  Dolgozunk azon, hogy összegyűjtsük a legjobb ajánlásokat 
-                  szállodákról, közlekedésről és helyi látnivalókról, hogy 
-                  látogatásotok a lehető legkényelmesebb és legélvezetesebb legyen.
-                </p>
-                <div className="font-script text-script-lg text-primary floating-element">
-                  Szállás részletek hamarosan...
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Accommodation Section */}
+            <Card 
+              className="backdrop-blur-md border-primary/20 rounded-2xl"
+              style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                boxShadow: 'var(--shadow-elegant)',
+                transition: 'var(--transition-elegant)'
+              }}
+            >
+              <CardContent className="p-8 md:p-12">
+                <h3 className="text-display-md text-primary mb-6 text-center">
+                  Szálláslehetőségek
+                </h3>
+                <div className="space-y-6 text-muted-foreground">
+                  <div className="space-y-4">
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">Palermo Kert Vendégház</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/palermo-kert-vendeghaz-dabas?_gl=1*13md9xj*_up*MQ..*_ga*NTc1MjgzMzk2LjE3NjUwMzYwMjI.*_ga_8QFX7JXGKS*czE3NjUwMzYwMjAkbzEkZzAkdDE3NjUwMzYwMjAkajYwJGwwJGgw&roomtypes=5130042:1328763:6&provision=2&adults=6" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">Dézsafürdő Vendégház</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/dezsafurdo-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=2&listIndex=2" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">P&A Vendégház</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/p-a-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&provision=1&listIndex=3&roomtypes=4956188:1020931:4;4956189:1020931:4;4956184:1020931:2&adults=10" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">Dabasi Lovas Vendégház</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/dabasi-lovas-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=4" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">Zöld Lámpás Vendégház</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/zold-lampas-vendeghaz-ujhartyan?checkin=2026-05-01&checkout=2026-05-02&ref=list&provision=1&listIndex=5&roomtypes=4951395:1015419:2;4951395:1015419:2&adults=4" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">Akác Tanya Faházak</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/akac-tanya-fahazak-ujlengyel?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=6" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">City Apartmans</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/city-apartmans-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=7" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">Nautilus Étterem és Panzió</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/nautilus-etterem-es-panzio-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=8" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+
+            {/* Taxi Section */}
+            <Card 
+              className="backdrop-blur-md border-primary/20 rounded-2xl"
+              style={{ 
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                boxShadow: 'var(--shadow-elegant)',
+                transition: 'var(--transition-elegant)'
+              }}
+            >
+              <CardContent className="p-8 md:p-12">
+                <h3 className="text-display-md text-primary mb-6 text-center">
+                  Taxi szolgáltatás
+                </h3>
+                <div className="space-y-6 text-muted-foreground">
+                  <div>
+                    <p className="font-medium text-foreground mb-2">Dabas-Gyóni Taxi</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <Phone className="text-primary flex-shrink-0" size={18} />
+                        <a 
+                          href="tel:+36209233649" 
+                          className="text-primary hover:underline"
+                        >
+                          0620 923 3649
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Mail className="text-primary flex-shrink-0" size={18} />
+                        <a 
+                          href="mailto:gyonitaxi@gmail.com" 
+                          className="text-primary hover:underline break-all"
+                        >
+                          gyonitaxi@gmail.com
+                        </a>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <MapPin className="text-primary flex-shrink-0 mt-1" size={18} />
+                        <a 
+                          href="https://www.dabas-gyonitaxi.hu/" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-primary hover:underline"
+                        >
+                          www.dabas-gyonitaxi.hu
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-primary/20">
+                    <p className="font-medium text-foreground mb-4">Árak:</p>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Dabas – Deák Udvarház</span>
+                        <span className="font-medium text-foreground">~8,000 Ft</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Újhartyán – Deák Udvarház</span>
+                        <span className="font-medium text-foreground">~6,000 Ft</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
