@@ -338,34 +338,37 @@ const WeddingWebsite = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-16 overflow-hidden border-t border-primary/20">
-        <img 
-          src={footerImage}
-          alt="Barbi & Bence"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ 
-            objectPosition: '90% 100%',
-            transform: 'scale(1.1)'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
-        <div className="container mx-auto text-center relative z-10">
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px bg-white/60 flex-1 max-w-32"></div>
-            <Heart className="text-white animate-float shadow-glow" size={28} />
-            <div className="h-px bg-white/60 flex-1 max-w-32"></div>
-          </div>
-          <p className="font-script text-script-xl text-white mb-4 floating-element drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Barbi & Bence
-          </p>
-          <div className="mb-40"></div>
-          {/* <p className="text-body-lg text-white/90 mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-            2026. május 1. • Deák Udvarház, Kakucs
-          </p> */}
-          <div className="bg-background/70 backdrop-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-script text-script-lg text-primary">
-              Szeretettel várunk, ott tali!
+      <footer className="relative overflow-hidden border-t border-primary/20">
+        <div className="relative w-full" style={{ aspectRatio: '21/9', minHeight: '500px' }}>
+          <img 
+            src={footerImage}
+            alt="Barbi & Bence"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ 
+              objectPosition: '90% 100%'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+          <div className="absolute inset-0 z-10 flex flex-col justify-start py-16">
+          <div className="container mx-auto text-center">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px bg-white/60 flex-1 max-w-32"></div>
+              <Heart className="text-white animate-float shadow-glow" size={28} />
+              <div className="h-px bg-white/60 flex-1 max-w-32"></div>
+            </div>
+            <p className="font-script text-script-xl text-white mb-4 floating-element drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Barbi & Bence
             </p>
+            {/* <div className="mb-40 md:mb-40"></div> */}
+            {/* <p className="text-body-lg text-white/90 mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+              2026. május 1. • Deák Udvarház, Kakucs
+            </p> */}
+            <div className="bg-background/70 backdrop-sm rounded-xl p-6 max-w-md mx-auto">
+              <p className="font-script text-script-lg text-primary">
+                Szeretettel várunk, ott tali!
+              </p>
+            </div>
+          </div>
           </div>
         </div>
       </footer>
