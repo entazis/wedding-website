@@ -519,7 +519,7 @@ const WeddingWebsite = () => {
               <Heart className="text-white animate-float shadow-glow" size={28} />
               <div className="h-px bg-white/60 flex-1 max-w-32"></div>
             </div>
-            <p className="font-script text-script-xl text-white mb-4 floating-element drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="font-script text-script-xl text-wedding-khaki mb-4 floating-element drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Barbi & Bence
             </p>
             {/* <div className="mb-40 md:mb-40"></div> */}
