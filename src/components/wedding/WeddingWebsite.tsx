@@ -1,3 +1,4 @@
+import heroImageMobile from '@/assets/IMG_2705.jpg';
 import heroImage from '@/assets/IMG_3102.jpg';
 import venueImage from '@/assets/venue-photo.jpg';
 import { Button } from '@/components/ui/button';
@@ -35,34 +36,45 @@ const WeddingWebsite = () => {
       
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Mobile image - visible on small screens */}
+        <img 
+          src={heroImageMobile}
+          alt="Barbi & Bence"
+          className="absolute inset-0 w-full h-full object-cover md:hidden"
+          style={{ 
+            objectPosition: '10% 80%',
+            transform: 'scale(1.15) translateX(3%)'
+          }}
+        />
+        {/* Desktop image - visible on medium screens and larger */}
         <img 
           src={heroImage}
           alt="Barbi & Bence"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
           style={{ 
             objectPosition: '50% 80%',
             transform: 'scale(1.15) translateX(3%)'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/60 md:from-black/40 md:via-black/20"></div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <div className="animate-fade-in">
-            <h1 className="text-display-xl text-wedding-khaki mb-4 drop-shadow-lg">
+            <h1 className="text-display-xl text-white md:text-wedding-khaki mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-lg">
               Barbi & Bence
             </h1>
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="h-px bg-wedding-khaki/40 flex-1 max-w-20"></div>
-              <Heart className="text-wedding-khaki animate-pulse-slow drop-shadow-md" size={24} />
-              <div className="h-px bg-wedding-khaki/40 flex-1 max-w-20"></div>
+              <div className="h-px bg-white/80 md:bg-wedding-khaki/40 flex-1 max-w-20"></div>
+              <Heart className="text-white md:text-wedding-khaki animate-pulse-slow drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-md" size={24} />
+              <div className="h-px bg-white/80 md:bg-wedding-khaki/40 flex-1 max-w-20"></div>
             </div>
-            <div className="font-script text-3xl text-wedding-khaki/95 mb-3 drop-shadow-md">
+            <div className="font-script text-3xl text-white md:text-wedding-khaki/95 mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-md">
               Szeretettel meghívunk esküvőnkre,
             </div>
-            <div className="font-script text-wedding-khaki/95 mb-2 drop-shadow-md text-xl">
+            <div className="font-script text-white md:text-wedding-khaki/95 mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-md text-xl">
               melynek időpontja és helyszíne:
             </div>
-            <p className="font-script text-wedding-khaki mb-8 drop-shadow-md text-3xl">
+            <p className="font-script text-white md:text-wedding-khaki mb-8 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-md text-3xl">
               2026. május 1. • Deák Udvarház, Kakucs
             </p>
           </div>
