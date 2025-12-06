@@ -85,7 +85,7 @@ const Navigation = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left transition-colors duration-200 font-body font-medium py-2 text-primary hover:text-primary/80"
+                    className="w-full text-center transition-colors duration-200 font-body font-medium py-2 text-primary hover:text-primary/80"
                   >
                     {item.label}
                   </button>

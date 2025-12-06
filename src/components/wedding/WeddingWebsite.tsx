@@ -311,7 +311,7 @@ const WeddingWebsite = () => {
             {/* <p className="text-body-lg text-white/90 mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
               2026. május 1. • Deák Udvarház, Kakucs
             </p> */}
-            <div className="bg-background/70 backdrop-sm rounded-xl p-6 max-w-md mx-auto">
+            <div className="bg-background/70 rounded-xl p-6 max-w-md mx-auto">
               <p className="font-script text-script-lg text-primary">
                 Szeretettel várunk, ott tali!
               </p>
