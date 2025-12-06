@@ -130,7 +130,7 @@ const WeddingWebsite = () => {
         {/* Background image */}
         <img 
           src={programImage}
-          alt="Programterv háttér"
+          alt="Menetrend háttér"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ 
             objectPosition: 'center'
@@ -142,7 +142,7 @@ const WeddingWebsite = () => {
           {/* <div className="section-divider mb-8"></div> */}
           
           <h2 className="text-display-lg text-primary text-center mb-6 floating-element">
-            Programterv
+            Menetrend
           </h2>
           <p className="text-center text-muted-foreground mb-16 max-w-xl mx-auto font-script text-xl">
             2026. május 1. • Kakucs

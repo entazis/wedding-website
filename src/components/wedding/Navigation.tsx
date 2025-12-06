@@ -25,7 +25,7 @@ const Navigation = () => {
   const menuItems = [
     { label: 'Főoldal', id: 'home' },
     { label: 'Történetünk', id: 'story' },
-    { label: 'Részletek', id: 'details' },
+    { label: 'Menetrend', id: 'details' },
     { label: 'Helyszín', id: 'location' },
     { label: 'Visszajelzés', id: 'rsvp' },
   ];
