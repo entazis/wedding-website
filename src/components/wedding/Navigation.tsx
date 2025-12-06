@@ -39,7 +39,9 @@ const Navigation = () => {
       }`}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="font-script text-script-lg text-primary">
+            <div className={`font-script text-script-lg transition-colors duration-300 ${
+              isSticky ? 'text-primary' : 'text-wedding-khaki'
+            }`}>
               B & B
             </div>
 
@@ -49,7 +51,11 @@ const Navigation = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-body font-medium"
+                  className={`transition-colors duration-200 font-body font-medium ${
+                    isSticky 
+                      ? 'text-primary hover:text-primary/80' 
+                      : 'text-wedding-khaki hover:text-wedding-khaki/80'
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -58,7 +64,11 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+              className={`md:hidden p-2 transition-colors ${
+                isSticky 
+                  ? 'text-primary hover:text-primary/80' 
+                  : 'text-wedding-khaki hover:text-wedding-khaki/80'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -75,7 +85,11 @@ const Navigation = () => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left text-foreground hover:text-primary transition-colors duration-200 font-body font-medium py-2"
+                    className={`text-left transition-colors duration-200 font-body font-medium py-2 ${
+                      isSticky 
+                        ? 'text-primary hover:text-primary/80' 
+                        : 'text-wedding-khaki hover:text-wedding-khaki/80'
+                    }`}
                   >
                     {item.label}
                   </button>

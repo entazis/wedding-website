@@ -62,6 +62,7 @@ export default {
           cream: "hsl(var(--wedding-cream))",
           gold: "hsl(var(--wedding-gold))",
           amber: "hsl(var(--wedding-amber))",
+          khaki: "hsl(var(--wedding-khaki))",
         },
       },
       fontFamily: {
