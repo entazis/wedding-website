@@ -114,9 +114,9 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
         duration: 6000,
       });
       
-      // Reset form and scroll to top
+      // Reset form and set success status
       form.reset();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setSubmitStatus('success');
       onSuccess?.();
     } catch (error) {
       console.error('Form submission error:', error);
@@ -136,18 +136,20 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
 
   return (
     <Card className="wedding-card-enhanced bg-background/95 backdrop-blur-md border-primary/20">
-      <CardHeader className="text-center pb-6">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <Heart className="text-primary animate-pulse-slow" size={24} />
-          <CardTitle className="text-display-md text-primary">
-            Visszajelzés
-          </CardTitle>
-          <Heart className="text-primary animate-pulse-slow" size={24} />
-        </div>
-        <p className="text-body-elegant text-muted-foreground">
-          Kérjük, töltsd ki az alábbi űrlapot, hogy megerősítsd részvételed az esküvőnkön.
-        </p>
-      </CardHeader>
+      {submitStatus !== 'success' && (
+        <CardHeader className="text-center pb-6">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Heart className="text-primary animate-pulse-slow" size={24} />
+            <CardTitle className="text-display-md text-primary">
+              Visszajelzés
+            </CardTitle>
+            <Heart className="text-primary animate-pulse-slow" size={24} />
+          </div>
+          <p className="text-body-elegant text-muted-foreground">
+            Kérjük, töltsd ki az alábbi űrlapot, hogy megerősítsd részvételed az esküvőnkön.
+          </p>
+        </CardHeader>
+      )}
       
       <CardContent className="p-6 md:p-8">
         {submitStatus === 'error' && (
@@ -159,7 +161,20 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
           </Alert>
         )}
 
-        <Form {...form}> 
+        {submitStatus === 'success' ? (
+          <div className="text-center py-8 space-y-4">
+            <div className="flex items-center justify-center mb-4">
+              <Heart className="text-primary animate-pulse-slow" size={48} />
+            </div>
+            <h3 className="text-2xl font-semibold text-primary mb-2">
+              Köszönjük a visszajelzést! 🎉
+            </h3>
+            <p className="text-body-elegant text-muted-foreground">
+              Visszajelzésedet sikeresen megkaptuk. Várunk az esküvőn!
+            </p>
+          </div>
+        ) : (
+          <Form {...form}> 
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             {/* Name Field */}
             <FormField
@@ -387,6 +402,7 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
             </div>
           </form>
         </Form>
+        )}
       </CardContent>
     </Card>
   );
