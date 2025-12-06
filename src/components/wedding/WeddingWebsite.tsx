@@ -1,4 +1,5 @@
 import heroImageMobile from '@/assets/IMG_2705.jpg';
+import programImage from '@/assets/IMG_2862.jpg';
 import footerImage from '@/assets/IMG_3054.jpg';
 import heroImage from '@/assets/IMG_3102.jpg';
 import venueImage from '@/assets/venue-photo.jpg';
@@ -126,6 +127,17 @@ const WeddingWebsite = () => {
 
       {/* Event Details Section - Timeline */}
       <section id="details" className="section-spacing bg-gradient-sage pattern-overlay relative overflow-hidden">
+        {/* Background image */}
+        <img 
+          src={programImage}
+          alt="Programterv háttér"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ 
+            objectPosition: 'center'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80"></div>
+        
         <div className="container mx-auto max-w-4xl relative z-10">
           {/* <div className="section-divider mb-8"></div> */}
           
