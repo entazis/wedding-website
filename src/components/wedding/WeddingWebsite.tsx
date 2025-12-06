@@ -2,7 +2,7 @@ import heroImageMobile from '@/assets/IMG_2705.jpg';
 import programImage from '@/assets/IMG_2862.jpg';
 import footerImage from '@/assets/IMG_3054.jpg';
 import heroImage from '@/assets/IMG_3102.jpg';
-import venueImage from '@/assets/venue-photo.jpg';
+import venueImage from '@/assets/deak.jpeg';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
@@ -178,7 +178,7 @@ const WeddingWebsite = () => {
                       <Button 
                         onClick={() => window.open('https://maps.app.goo.gl/quGw6pdp2ntsNVXV7', '_blank')}
                         variant="outline"
-                        className="w-full wedding-button bg-primary/10 hover:bg-primary/20 border-primary/30"
+                        className="w-full wedding-button bg-primary/10 hover:bg-primary/20 border-primary/30 text-primary font-medium"
                       >
                         <MapPin size={18} className="mr-2" />
                         Megtekintés térképen
@@ -186,7 +186,7 @@ const WeddingWebsite = () => {
                       <Button 
                         onClick={() => window.open('https://deakudvarhaz.com/', '_blank')}
                         variant="outline"
-                        className="w-full wedding-button bg-secondary/10 hover:bg-secondary/20 border-secondary/30"
+                        className="w-full wedding-button bg-secondary/10 hover:bg-secondary/20 border-secondary/30 text-foreground font-medium"
                       >
                         Helyszín weboldala
                       </Button>
