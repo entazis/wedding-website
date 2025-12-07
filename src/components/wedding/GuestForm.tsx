@@ -418,17 +418,17 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full wedding-button text-lg py-6 h-auto"
+                className="w-full wedding-button text-base sm:text-lg py-6 h-auto whitespace-normal break-words"
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin flex-shrink-0" />
                     Küldés...
                   </>
                 ) : (
                   <>
-                    <Heart className="mr-2 h-5 w-5" />
-                    Visszajelzés elküldése
+                    <Heart className="mr-2 h-5 w-5 flex-shrink-0" />
+                    <span className="text-center">Visszajelzés elküldése</span>
                   </>
                 )}
               </Button>

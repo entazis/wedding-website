@@ -216,9 +216,9 @@ const WeddingWebsite = () => {
             Szerelmünk története
           </h2>
           <Card className="wedding-card-enhanced">
-            <CardContent className="p-8 md:p-12">
-              <div className="max-w-none text-muted-foreground">
-                <p className="text-body-lg mb-6 font-script text-script-lg text-primary">
+            <CardContent className="p-4 sm:p-6 md:p-12">
+              <div className="max-w-none text-muted-foreground text-left md:text-center">
+                <p className="text-body-lg mb-6 font-script text-script-lg text-primary text-center">
                   „Minden a parketten kezdődött.”
                 </p>
                 <p className="text-body-elegant mb-6">
@@ -296,7 +296,7 @@ const WeddingWebsite = () => {
 
       {/* Location Section */}
       <section id="location" className="section-spacing bg-gradient-gold pattern-overlay">
-        <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="mx-auto max-w-6xl relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px bg-primary/40 flex-1 max-w-20"></div>
             <Heart className="text-primary animate-pulse-slow drop-shadow-md" size={24} />
@@ -306,10 +306,10 @@ const WeddingWebsite = () => {
             Helyszín
           </h2>
           
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="floating-element">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-items-center">
+            <div className="floating-element w-full max-w-lg">
               <Card className="wedding-card-enhanced">
-                <CardContent className="p-8">
+                <CardContent className="p-4 sm:p-6 md:p-8">
                   <h3 className="text-display-md text-primary mb-6">Deák Udvarház</h3>
                   <div className="space-y-4 text-muted-foreground">
                     <p className="flex items-start gap-3 text-lg">
@@ -347,7 +347,7 @@ const WeddingWebsite = () => {
               </Card>
             </div>
             
-            <div className="relative floating-element">
+            <div className="relative floating-element w-full max-w-lg">
               <div className="relative rounded-2xl overflow-hidden shadow-glow">
                 <picture>
                   <source
@@ -517,7 +517,7 @@ const WeddingWebsite = () => {
 
       {/* RSVP Section */}
       <section id="rsvp" className="section-spacing bg-gradient-primary text-primary-foreground pattern-overlay">
-        <div className="container mx-auto max-w-4xl relative z-10">
+        <div className="mx-auto max-w-4xl relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px bg-primary-foreground/40 flex-1 max-w-20"></div>
             <Heart className="text-primary-foreground animate-pulse-slow drop-shadow-md" size={24} />
@@ -533,7 +533,7 @@ const WeddingWebsite = () => {
           
           {/* Contact Information */}
           <Card className="wedding-card-enhanced bg-background/95 backdrop-blur-md border-primary/20">
-            <CardContent className="p-8 md:p-12">
+            <CardContent className="p-4 sm:p-6 md:p-12">
               <div className="text-center text-foreground">
                 <h3 className="text-display-md text-primary mb-6 floating-element">
                   Vagy vedd fel velünk a kapcsolatot
@@ -543,14 +543,14 @@ const WeddingWebsite = () => {
                   bátran keress minket!
                 </p>
                 
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
+                <div className="grid md:grid-cols-2 gap-6 mt-8 justify-items-center">
                   <Button
                     onClick={handlePhoneCall}
                     variant="outline"
-                    className="flex items-center justify-center gap-3 text-muted-foreground bg-primary/10 hover:bg-primary/20 border-primary/30 rounded-lg p-6 h-auto wedding-button floating-element hover:scale-102"
+                    className="flex items-center justify-center gap-3 text-muted-foreground bg-primary/10 hover:bg-primary/20 border-primary/30 rounded-lg p-6 h-auto wedding-button floating-element hover:scale-102 w-full max-w-sm"
                     style={{ transition: 'var(--transition-elegant)' }}
                   >
-                    <Phone size={24} className="text-primary" />
+                    <Phone size={24} className="text-primary flex-shrink-0" />
                     <div className="text-left">
                       <div className="text-lg font-medium">Hívj fel minket</div>
                       <div className="text-sm text-primary">{CONTACT_PHONE}</div>
@@ -559,10 +559,10 @@ const WeddingWebsite = () => {
                   <Button
                     onClick={handleEmailSend}
                     variant="outline"
-                    className="flex items-center justify-center gap-3 text-muted-foreground bg-secondary/10 hover:bg-secondary/20 border-secondary/30 rounded-lg p-6 h-auto wedding-button floating-element hover:scale-102"
+                    className="flex items-center justify-center gap-3 text-muted-foreground bg-secondary/10 hover:bg-secondary/20 border-secondary/30 rounded-lg p-6 h-auto wedding-button floating-element hover:scale-102 w-full max-w-sm"
                     style={{ transition: 'var(--transition-elegant)' }}
                   >
-                    <Mail size={24} className="text-primary" />
+                    <Mail size={24} className="text-primary flex-shrink-0" />
                     <div className="text-left">
                       <div className="text-lg font-medium">Írj nekünk emailt</div>
                       <div className="text-sm text-primary">{CONTACT_EMAIL}</div>
