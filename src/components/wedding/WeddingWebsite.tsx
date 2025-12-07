@@ -269,7 +269,7 @@ const WeddingWebsite = () => {
             type="image/jpeg"
           />
           <img
-            src={programImageJpeg800}
+            src={programImageJpeg1920}
             alt="Menetrend háttér"
             className="w-full h-full object-cover"
             loading="lazy"
@@ -392,7 +392,7 @@ const WeddingWebsite = () => {
             type="image/jpeg"
           />
           <img
-            src={travelImageJpeg800}
+            src={travelImageJpeg1920}
             alt="Utazás és szállás háttér"
             className="w-full h-full object-cover"
             loading="lazy"
@@ -596,7 +596,7 @@ const WeddingWebsite = () => {
               type="image/jpeg"
             />
             <img
-              src={footerImageJpeg800}
+              src={footerImageJpeg1920}
               alt="Barbi & Bence"
               className="w-full h-full object-cover"
               loading="lazy"
