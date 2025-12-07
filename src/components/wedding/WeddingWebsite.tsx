@@ -12,6 +12,67 @@ import GuestForm from './GuestForm';
 import Navigation from './Navigation';
 import Timeline from './Timeline';
 
+interface Accommodation {
+  name: string;
+  city: string;
+  url: string;
+  linkText?: string;
+}
+
+const ACCOMMODATIONS: Accommodation[] = [
+  {
+    name: 'Flow Hotel & Conference Inárcs',
+    city: 'Inárcs',
+    url: 'https://szallas.hu/flow-hotel-conference-inarcs?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&rooms=1&provision=2&listIndex=0',
+  },
+  {
+    name: 'Bagolyvár',
+    city: 'Inárcs',
+    url: 'https://bagolyvarinarcs.hu/foglalas',
+    linkText: 'Foglalás',
+  },
+  {
+    name: 'Palermo Kert Vendégház',
+    city: 'Dabas',
+    url: 'https://szallas.hu/palermo-kert-vendeghaz-dabas?_gl=1*13md9xj*_up*MQ..*_ga*NTc1MjgzMzk2LjE3NjUwMzYwMjI.*_ga_8QFX7JXGKS*czE3NjUwMzYwMjAkbzEkZzAkdDE3NjUwMzYwMjAkajYwJGwwJGgw&roomtypes=5130042:1328763:6&provision=2&adults=6',
+  },
+  {
+    name: 'Dézsafürdő Vendégház',
+    city: 'Dabas',
+    url: 'https://szallas.hu/dezsafurdo-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=2&listIndex=2',
+  },
+  {
+    name: 'P&A Vendégház',
+    city: 'Dabas',
+    url: 'https://szallas.hu/p-a-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&rooms=1&provision=1&listIndex=2',
+  },
+  {
+    name: 'Dabasi Lovas Vendégház',
+    city: 'Dabas',
+    url: 'https://szallas.hu/dabasi-lovas-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=4',
+  },
+  {
+    name: 'Zöld Lámpás Vendégház',
+    city: 'Újhartyán',
+    url: 'https://szallas.hu/zold-lampas-vendeghaz-ujhartyan?checkin=2026-05-01&checkout=2026-05-02&ref=list&provision=1&listIndex=5&roomtypes=4951395:1015419:2;4951395:1015419:2&adults=4',
+  },
+  {
+    name: 'Akác Tanya Faházak',
+    city: 'Újlengyel',
+    url: 'https://szallas.hu/akac-tanya-fahazak-ujlengyel?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=6',
+  },
+  {
+    name: 'City Apartmans',
+    city: 'Dabas',
+    url: 'https://szallas.hu/city-apartmans-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=7',
+  },
+  {
+    name: 'Nautilus Étterem és Panzió',
+    city: 'Dabas',
+    url: 'https://szallas.hu/nautilus-etterem-es-panzio-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=8',
+  },
+];
+
 const WeddingWebsite = () => {
   // Contact information from environment variables
   const CONTACT_PHONE = import.meta.env.VITE_CONTACT_PHONE;
@@ -259,155 +320,29 @@ const WeddingWebsite = () => {
                 </h3>
                 <div className="space-y-6 text-muted-foreground">
                   <div className="space-y-4">
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Flow Hotel & Conference Inárcs</p>
-                        <p className="text-sm">Inárcs</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/flow-hotel-conference-inarcs?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&rooms=1&provision=2&listIndex=0" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Bagolyvár</p>
-                        <p className="text-sm">Inárcs</p>
-                      </div>
-                      <a 
-                        href="https://bagolyvarinarcs.hu/foglalas" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Foglalás →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Palermo Kert Vendégház</p>
-                        <p className="text-sm">Dabas</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/palermo-kert-vendeghaz-dabas?_gl=1*13md9xj*_up*MQ..*_ga*NTc1MjgzMzk2LjE3NjUwMzYwMjI.*_ga_8QFX7JXGKS*czE3NjUwMzYwMjAkbzEkZzAkdDE3NjUwMzYwMjAkajYwJGwwJGgw&roomtypes=5130042:1328763:6&provision=2&adults=6" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Dézsafürdő Vendégház</p>
-                        <p className="text-sm">Dabas</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/dezsafurdo-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=2&listIndex=2" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">P&A Vendégház</p>
-                        <p className="text-sm">Dabas</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/p-a-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&rooms=1&provision=1&listIndex=2" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Dabasi Lovas Vendégház</p>
-                        <p className="text-sm">Dabas</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/dabasi-lovas-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=4" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Zöld Lámpás Vendégház</p>
-                        <p className="text-sm">Újhartyán</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/zold-lampas-vendeghaz-ujhartyan?checkin=2026-05-01&checkout=2026-05-02&ref=list&provision=1&listIndex=5&roomtypes=4951395:1015419:2;4951395:1015419:2&adults=4" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Akác Tanya Faházak</p>
-                        <p className="text-sm">Újlengyel</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/akac-tanya-fahazak-ujlengyel?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=6" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="border-b border-primary/20 pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">City Apartmans</p>
-                        <p className="text-sm">Dabas</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/city-apartmans-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=7" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
-                    
-                    <div className="pb-4">
-                      <div className="mb-2">
-                        <p className="font-medium text-foreground">Nautilus Étterem és Panzió</p>
-                        <p className="text-sm">Dabas</p>
-                      </div>
-                      <a 
-                        href="https://szallas.hu/nautilus-etterem-es-panzio-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=8" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        Szallas.hu →
-                      </a>
-                    </div>
+                    {ACCOMMODATIONS.map((accommodation, index) => {
+                      const isLast = index === ACCOMMODATIONS.length - 1;
+                      const linkText = accommodation.linkText || 'Szallas.hu';
+                      return (
+                        <div
+                          key={accommodation.name}
+                          className={isLast ? 'pb-4' : 'border-b border-primary/20 pb-4'}
+                        >
+                          <div className="mb-2">
+                            <p className="font-medium text-foreground">{accommodation.name}</p>
+                            <p className="text-sm">{accommodation.city}</p>
+                          </div>
+                          <a
+                            href={accommodation.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary hover:underline text-sm"
+                          >
+                            {linkText} →
+                          </a>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </CardContent>
