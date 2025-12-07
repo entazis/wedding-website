@@ -261,7 +261,38 @@ const WeddingWebsite = () => {
                   <div className="space-y-4">
                     <div className="border-b border-primary/20 pb-4">
                       <div className="mb-2">
+                        <p className="font-medium text-foreground">Flow Hotel & Conference Inárcs</p>
+                        <p className="text-sm">Inárcs</p>
+                      </div>
+                      <a 
+                        href="https://szallas.hu/flow-hotel-conference-inarcs?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&rooms=1&provision=2&listIndex=0" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Szallas.hu →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
+                        <p className="font-medium text-foreground">Bagolyvár</p>
+                        <p className="text-sm">Inárcs</p>
+                      </div>
+                      <a 
+                        href="https://bagolyvarinarcs.hu/foglalas" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Foglalás →
+                      </a>
+                    </div>
+                    
+                    <div className="border-b border-primary/20 pb-4">
+                      <div className="mb-2">
                         <p className="font-medium text-foreground">Palermo Kert Vendégház</p>
+                        <p className="text-sm">Dabas</p>
                       </div>
                       <a 
                         href="https://szallas.hu/palermo-kert-vendeghaz-dabas?_gl=1*13md9xj*_up*MQ..*_ga*NTc1MjgzMzk2LjE3NjUwMzYwMjI.*_ga_8QFX7JXGKS*czE3NjUwMzYwMjAkbzEkZzAkdDE3NjUwMzYwMjAkajYwJGwwJGgw&roomtypes=5130042:1328763:6&provision=2&adults=6" 
@@ -276,6 +307,7 @@ const WeddingWebsite = () => {
                     <div className="border-b border-primary/20 pb-4">
                       <div className="mb-2">
                         <p className="font-medium text-foreground">Dézsafürdő Vendégház</p>
+                        <p className="text-sm">Dabas</p>
                       </div>
                       <a 
                         href="https://szallas.hu/dezsafurdo-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=2&listIndex=2" 
@@ -290,9 +322,10 @@ const WeddingWebsite = () => {
                     <div className="border-b border-primary/20 pb-4">
                       <div className="mb-2">
                         <p className="font-medium text-foreground">P&A Vendégház</p>
+                        <p className="text-sm">Dabas</p>
                       </div>
                       <a 
-                        href="https://szallas.hu/p-a-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&provision=1&listIndex=3&roomtypes=4956188:1020931:4;4956189:1020931:4;4956184:1020931:2&adults=10" 
+                        href="https://szallas.hu/p-a-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&rooms=1&provision=1&listIndex=2" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-primary hover:underline text-sm"
@@ -304,6 +337,7 @@ const WeddingWebsite = () => {
                     <div className="border-b border-primary/20 pb-4">
                       <div className="mb-2">
                         <p className="font-medium text-foreground">Dabasi Lovas Vendégház</p>
+                        <p className="text-sm">Dabas</p>
                       </div>
                       <a 
                         href="https://szallas.hu/dabasi-lovas-vendeghaz-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=4" 
@@ -318,6 +352,7 @@ const WeddingWebsite = () => {
                     <div className="border-b border-primary/20 pb-4">
                       <div className="mb-2">
                         <p className="font-medium text-foreground">Zöld Lámpás Vendégház</p>
+                        <p className="text-sm">Újhartyán</p>
                       </div>
                       <a 
                         href="https://szallas.hu/zold-lampas-vendeghaz-ujhartyan?checkin=2026-05-01&checkout=2026-05-02&ref=list&provision=1&listIndex=5&roomtypes=4951395:1015419:2;4951395:1015419:2&adults=4" 
@@ -332,6 +367,7 @@ const WeddingWebsite = () => {
                     <div className="border-b border-primary/20 pb-4">
                       <div className="mb-2">
                         <p className="font-medium text-foreground">Akác Tanya Faházak</p>
+                        <p className="text-sm">Újlengyel</p>
                       </div>
                       <a 
                         href="https://szallas.hu/akac-tanya-fahazak-ujlengyel?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=6" 
@@ -346,6 +382,7 @@ const WeddingWebsite = () => {
                     <div className="border-b border-primary/20 pb-4">
                       <div className="mb-2">
                         <p className="font-medium text-foreground">City Apartmans</p>
+                        <p className="text-sm">Dabas</p>
                       </div>
                       <a 
                         href="https://szallas.hu/city-apartmans-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=7" 
@@ -360,6 +397,7 @@ const WeddingWebsite = () => {
                     <div className="pb-4">
                       <div className="mb-2">
                         <p className="font-medium text-foreground">Nautilus Étterem és Panzió</p>
+                        <p className="text-sm">Dabas</p>
                       </div>
                       <a 
                         href="https://szallas.hu/nautilus-etterem-es-panzio-dabas?checkin=2026-05-01&checkout=2026-05-02&ref=list&adults=2&provision=1&listIndex=8" 
