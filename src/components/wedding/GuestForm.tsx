@@ -24,7 +24,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { submitGuestFormToSheets } from '@/services/googleSheets';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AlertCircle, Heart, Loader2 } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -50,7 +50,8 @@ const guestFormSchema = z.object({
   guestCount: z
     .number()
     .min(1, 'Legalább 1 főnek kell lennie')
-    .max(5, 'Maximum 5 fő lehet'),
+    .max(6, 'Maximum 6 fő lehet')
+    .optional(),
   dietaryRequirements: z
     .array(z.enum(['vegetarian', 'vegan', 'gluten-free', 'lactose-free', 'nut-allergy', 'shellfish-allergy', 'other']))
     .optional()
@@ -59,7 +60,20 @@ const guestFormSchema = z.object({
     .string()
     .max(1000, 'A különleges kérések maximum 1000 karakter lehetnek')
     .optional(),
-});
+}).refine(
+  (data) => {
+    // guestCount is required only when attendance is "yes" or "maybe"
+    if (data.attendance === 'yes' || data.attendance === 'maybe') {
+      return data.guestCount !== undefined && data.guestCount >= 1 && data.guestCount <= 6;
+    }
+    // When attendance is "no", guestCount should be undefined
+    return true;
+  },
+  {
+    message: 'A vendégek száma kötelező, ha részt veszel az esküvőn',
+    path: ['guestCount'],
+  }
+);
 
 type GuestFormData = z.infer<typeof guestFormSchema>;
 
@@ -79,11 +93,23 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
       email: '',
       phone: '',
       attendance: undefined,
-      guestCount: 1,
+      guestCount: undefined,
       dietaryRequirements: [],
       specialRequests: '',
     },
   });
+
+  const attendanceValue = form.watch('attendance');
+
+  // Reset guestCount when attendance changes to "no"
+  useEffect(() => {
+    if (attendanceValue === 'no') {
+      form.setValue('guestCount', undefined, { shouldValidate: false });
+    } else if ((attendanceValue === 'yes' || attendanceValue === 'maybe') && !form.getValues('guestCount')) {
+      // Set default value when switching to yes/maybe if no value exists
+      form.setValue('guestCount', 1, { shouldValidate: false });
+    }
+  }, [attendanceValue, form]);
 
 
 
@@ -98,7 +124,7 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
         email: data.email,
         phone: data.phone,
         attendance: data.attendance,
-        guestCount: data.guestCount,
+        guestCount: data.attendance === 'no' ? undefined : data.guestCount,
         dietaryRequirements: data.dietaryRequirements && data.dietaryRequirements.length > 0
           ? data.dietaryRequirements.join(', ')
           : undefined,
@@ -128,7 +154,6 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
     }
   };
 
-  const attendanceValue = form.watch('attendance');
   const showGuestDetails = attendanceValue === 'yes' || attendanceValue === 'maybe';
 
   return (
