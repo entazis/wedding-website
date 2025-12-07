@@ -1,6 +1,7 @@
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { defineConfig } from "vite";
+import { imagetools } from "vite-imagetools";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
@@ -8,7 +9,7 @@ export default defineConfig(() => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react()],
+  plugins: [react(), imagetools()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

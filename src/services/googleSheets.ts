@@ -10,7 +10,7 @@ export interface GuestFormSubmission {
   email?: string;
   phone?: string;
   attendance: "yes" | "no" | "maybe";
-  guestCount: number;
+  guestCount?: number;
   dietaryRequirements?: string | string[];
   specialRequests?: string;
   timestamp: string;

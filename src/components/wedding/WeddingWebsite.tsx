@@ -1,10 +1,30 @@
-import venueImage from '@/assets/deak.jpeg';
-import heroImageMobile from '@/assets/IMG_2705.jpg';
-import programImage from '@/assets/IMG_2862.jpg';
-import travelImage from '@/assets/IMG_2919.jpg';
-import footerImage from '@/assets/IMG_3054.jpg';
-import programImageMobile from '@/assets/IMG_3063.jpg';
-import heroImage from '@/assets/IMG_3102.jpg';
+// Optimized image imports with responsive sizes and WebP format
+import venueImageWebp from '@/assets/deak.jpeg?format=webp&w=1200&q=85';
+import venueImageJpeg from '@/assets/deak.jpeg?w=1200&q=85';
+import heroImageMobileWebp1200 from '@/assets/IMG_2705.jpg?format=webp&w=1200&q=85';
+import heroImageMobileWebp800 from '@/assets/IMG_2705.jpg?format=webp&w=800&q=85';
+import heroImageMobileJpeg1200 from '@/assets/IMG_2705.jpg?w=1200&q=85';
+import heroImageMobileJpeg800 from '@/assets/IMG_2705.jpg?w=800&q=85';
+import programImageWebp1920 from '@/assets/IMG_2862.jpg?format=webp&w=1920&q=85';
+import programImageWebp800 from '@/assets/IMG_2862.jpg?format=webp&w=800&q=85';
+import programImageJpeg1920 from '@/assets/IMG_2862.jpg?w=1920&q=85';
+import programImageJpeg800 from '@/assets/IMG_2862.jpg?w=800&q=85';
+import travelImageWebp1920 from '@/assets/IMG_2919.jpg?format=webp&w=1920&q=85';
+import travelImageWebp800 from '@/assets/IMG_2919.jpg?format=webp&w=800&q=85';
+import travelImageJpeg1920 from '@/assets/IMG_2919.jpg?w=1920&q=85';
+import travelImageJpeg800 from '@/assets/IMG_2919.jpg?w=800&q=85';
+import footerImageWebp1920 from '@/assets/IMG_3054.jpg?format=webp&w=1920&q=85';
+import footerImageWebp800 from '@/assets/IMG_3054.jpg?format=webp&w=800&q=85';
+import footerImageJpeg1920 from '@/assets/IMG_3054.jpg?w=1920&q=85';
+import footerImageJpeg800 from '@/assets/IMG_3054.jpg?w=800&q=85';
+import programImageMobileWebp1200 from '@/assets/IMG_3063.jpg?format=webp&w=1200&q=85';
+import programImageMobileWebp800 from '@/assets/IMG_3063.jpg?format=webp&w=800&q=85';
+import programImageMobileJpeg1200 from '@/assets/IMG_3063.jpg?w=1200&q=85';
+import programImageMobileJpeg800 from '@/assets/IMG_3063.jpg?w=800&q=85';
+import heroImageWebp1200 from '@/assets/IMG_3102.jpg?format=webp&w=1200&q=85';
+import heroImageWebp1920 from '@/assets/IMG_3102.jpg?format=webp&w=1920&q=85';
+import heroImageJpeg1200 from '@/assets/IMG_3102.jpg?w=1200&q=85';
+import heroImageJpeg1920 from '@/assets/IMG_3102.jpg?w=1920&q=85';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
@@ -103,25 +123,49 @@ const WeddingWebsite = () => {
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Mobile image - visible on small screens */}
-        <img 
-          src={heroImageMobile}
-          alt="Barbi & Bence"
-          className="absolute inset-0 w-full h-full object-cover md:hidden"
-          style={{ 
-            objectPosition: '10% 80%',
-            transform: 'scale(1.15) translateX(3%)'
-          }}
-        />
+        <picture className="absolute inset-0 w-full h-full md:hidden">
+          <source
+            srcSet={`${heroImageMobileWebp800} 800w, ${heroImageMobileWebp1200} 1200w`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${heroImageMobileJpeg800} 800w, ${heroImageMobileJpeg1200} 1200w`}
+            type="image/jpeg"
+          />
+          <img
+            src={heroImageMobileJpeg800}
+            alt="Barbi & Bence"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            style={{
+              objectPosition: '10% 80%',
+              transform: 'scale(1.15) translateX(3%)'
+            }}
+          />
+        </picture>
         {/* Desktop image - visible on medium screens and larger */}
-        <img 
-          src={heroImage}
-          alt="Barbi & Bence"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          style={{ 
-            objectPosition: '50% 80%',
-            transform: 'scale(1.15) translateX(3%)'
-          }}
-        />
+        <picture className="hidden md:block absolute inset-0 w-full h-full">
+          <source
+            srcSet={`${heroImageWebp1200} 1200w, ${heroImageWebp1920} 1920w`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${heroImageJpeg1200} 1200w, ${heroImageJpeg1920} 1920w`}
+            type="image/jpeg"
+          />
+          <img
+            src={heroImageJpeg1200}
+            alt="Barbi & Bence"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            style={{
+              objectPosition: '50% 80%',
+              transform: 'scale(1.15) translateX(3%)'
+            }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/60 md:from-black/40 md:via-black/20"></div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -191,23 +235,45 @@ const WeddingWebsite = () => {
       {/* Event Details Section - Timeline */}
       <section id="details" className="section-spacing bg-gradient-sage pattern-overlay relative overflow-hidden">
         {/* Mobile background image - visible on small screens */}
-        <img 
-          src={programImageMobile}
-          alt="Menetrend háttér"
-          className="absolute inset-0 w-full h-full object-cover md:hidden"
-          style={{ 
-            objectPosition: '80% 50%'
-          }}
-        />
+        <picture className="absolute inset-0 w-full h-full md:hidden">
+          <source
+            srcSet={`${programImageMobileWebp800} 800w, ${programImageMobileWebp1200} 1200w`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${programImageMobileJpeg800} 800w, ${programImageMobileJpeg1200} 1200w`}
+            type="image/jpeg"
+          />
+          <img
+            src={programImageMobileJpeg800}
+            alt="Menetrend háttér"
+            className="w-full h-full object-cover"
+            loading="lazy"
+            style={{
+              objectPosition: '80% 50%'
+            }}
+          />
+        </picture>
         {/* Desktop background image - visible on medium screens and larger */}
-        <img 
-          src={programImage}
-          alt="Menetrend háttér"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          style={{ 
-            objectPosition: 'center'
-          }}
-        />
+        <picture className="hidden md:block absolute inset-0 w-full h-full">
+          <source
+            srcSet={`${programImageWebp800} 800w, ${programImageWebp1920} 1920w`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${programImageJpeg800} 800w, ${programImageJpeg1920} 1920w`}
+            type="image/jpeg"
+          />
+          <img
+            src={programImageJpeg800}
+            alt="Menetrend háttér"
+            className="w-full h-full object-cover"
+            loading="lazy"
+            style={{
+              objectPosition: 'center'
+            }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80"></div>
         
         <div className="container mx-auto max-w-4xl relative z-10">
@@ -275,11 +341,22 @@ const WeddingWebsite = () => {
             
             <div className="relative floating-element">
               <div className="relative rounded-2xl overflow-hidden shadow-glow">
-                <img 
-                  src={venueImage} 
-                  alt="Deák Udvarház - Esküvői helyszín" 
-                  className="w-full h-[450px] object-cover"
-                />
+                <picture>
+                  <source
+                    srcSet={venueImageWebp}
+                    type="image/webp"
+                  />
+                  <source
+                    srcSet={venueImageJpeg}
+                    type="image/jpeg"
+                  />
+                  <img
+                    src={venueImageJpeg}
+                    alt="Deák Udvarház - Esküvői helyszín"
+                    className="w-full h-[450px] object-cover"
+                    loading="lazy"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-wedding-gold/20"></div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-background/90 backdrop-blur-sm rounded-lg p-4">
@@ -297,16 +374,27 @@ const WeddingWebsite = () => {
       {/* Travel & Accommodation Section */}
       <section className="section-spacing bg-gradient-section-alt pattern-overlay relative overflow-hidden">
         {/* Background image */}
-        <img 
-          src={travelImage}
-          alt="Utazás és szállás háttér"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ 
-            objectPosition: '50% center',
-            transform: 'translateY(-10%)',
-            height: '120%'
-          }}
-        />
+        <picture className="absolute inset-0 w-full h-full">
+          <source
+            srcSet={`${travelImageWebp800} 800w, ${travelImageWebp1920} 1920w`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${travelImageJpeg800} 800w, ${travelImageJpeg1920} 1920w`}
+            type="image/jpeg"
+          />
+          <img
+            src={travelImageJpeg800}
+            alt="Utazás és szállás háttér"
+            className="w-full h-full object-cover"
+            loading="lazy"
+            style={{
+              objectPosition: '50% center',
+              transform: 'translateY(-10%)',
+              height: '120%'
+            }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80"></div>
         
         <div className="container mx-auto max-w-4xl text-center relative z-10 pt-12">
@@ -486,14 +574,25 @@ const WeddingWebsite = () => {
       {/* Footer */}
       <footer className="relative overflow-hidden border-t border-primary/20">
         <div className="relative w-full" style={{ aspectRatio: '21/9', minHeight: '500px' }}>
-          <img 
-            src={footerImage}
-            alt="Barbi & Bence"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ 
-              objectPosition: '90% 100%'
-            }}
-          />
+          <picture className="absolute inset-0 w-full h-full">
+            <source
+              srcSet={`${footerImageWebp800} 800w, ${footerImageWebp1920} 1920w`}
+              type="image/webp"
+            />
+            <source
+              srcSet={`${footerImageJpeg800} 800w, ${footerImageJpeg1920} 1920w`}
+              type="image/jpeg"
+            />
+            <img
+              src={footerImageJpeg800}
+              alt="Barbi & Bence"
+              className="w-full h-full object-cover"
+              loading="lazy"
+              style={{
+                objectPosition: '90% 100%'
+              }}
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
           <div className="absolute inset-0 z-10 flex flex-col justify-start py-16">
           <div className="container mx-auto text-center">
