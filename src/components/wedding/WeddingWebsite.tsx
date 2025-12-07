@@ -3,6 +3,7 @@ import heroImageMobile from '@/assets/IMG_2705.jpg';
 import programImage from '@/assets/IMG_2862.jpg';
 import travelImage from '@/assets/IMG_2919.jpg';
 import footerImage from '@/assets/IMG_3054.jpg';
+import programImageMobile from '@/assets/IMG_3063.jpg';
 import heroImage from '@/assets/IMG_3102.jpg';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -189,11 +190,20 @@ const WeddingWebsite = () => {
 
       {/* Event Details Section - Timeline */}
       <section id="details" className="section-spacing bg-gradient-sage pattern-overlay relative overflow-hidden">
-        {/* Background image */}
+        {/* Mobile background image - visible on small screens */}
+        <img 
+          src={programImageMobile}
+          alt="Menetrend háttér"
+          className="absolute inset-0 w-full h-full object-cover md:hidden"
+          style={{ 
+            objectPosition: '80% 50%'
+          }}
+        />
+        {/* Desktop background image - visible on medium screens and larger */}
         <img 
           src={programImage}
           alt="Menetrend háttér"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
           style={{ 
             objectPosition: 'center'
           }}
