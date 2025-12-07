@@ -69,6 +69,7 @@ export default {
         display: ["Cormorant Garamond", "Georgia", "Times New Roman", "serif"],
         body: ["Lora", "Georgia", "Times New Roman", "serif"],
         script: [
+          "Great Vibes",
           "Eyesome Script",
           "Brush Script MT",
           "Lucida Handwriting",
