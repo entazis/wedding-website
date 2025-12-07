@@ -168,7 +168,7 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
             <Heart className="text-primary animate-pulse-slow" size={24} />
           </div>
           <p className="text-body-elegant text-muted-foreground">
-            Kérjük, töltsd ki az alábbi űrlapot, hogy megerősítsd részvételed az esküvőnkön.
+            Kérjük, töltsd ki az alábbi űrlapot, hogy tudjuk, számíthatunk-e rád - reméljük, igen!
           </p>
         </CardHeader>
       )}
@@ -345,8 +345,6 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                     { value: 'vegan', label: 'Vegán' },
                     { value: 'gluten-free', label: 'Gluténmentes' },
                     { value: 'lactose-free', label: 'Laktózmentes' },
-                    { value: 'nut-allergy', label: 'Mogyoróallergia' },
-                    { value: 'shellfish-allergy', label: 'Tenger gyümölcsei allergia' },
                     { value: 'other', label: 'Egyéb' },
                   ];
                   const currentValue = field.value || [];
@@ -400,18 +398,15 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-foreground font-medium">
-                      Különleges kérések
+                      Megjegyzés
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Bármilyen különleges kérés vagy megjegyzés..."
+                        placeholder="Bármilyen egyéb információ, amit tudnunk kellene"
                         className="wedding-input min-h-[100px] resize-none"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>
-                      Bármilyen egyéb információ, amit tudnunk kellene
-                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

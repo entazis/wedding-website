@@ -198,7 +198,7 @@ const WeddingWebsite = () => {
               onClick={() => scrollToSection('rsvp')}
               className="wedding-button text-lg px-8 py-4"
             >
-              Visszajelzés most
+              Visszajelzés
             </Button>
           </div>
         </div>
@@ -218,18 +218,18 @@ const WeddingWebsite = () => {
           <Card className="wedding-card-enhanced">
             <CardContent className="p-8 md:p-12">
               <div className="max-w-none text-muted-foreground">
-                <p className="text-body-lg mb-6">
-                  Történetünk még íródik, de azt biztosan tudjuk, hogy 
-                  2026. május 1-je lesz a legszebb fejezet.
+                <p className="text-body-lg mb-6 font-script text-script-lg text-primary">
+                  „Minden a parketten kezdődött.”
+                </p>
+                <p className="text-body-elegant mb-6">
+                  Egy tánccal, hosszú és mély pillantásokkal, őszinte mosolyokkal, nevetéssel – és valami megmagyarázhatatlan, mégis nagyon is valódi vonzással kettőnk között. Akkor még nem jött el a mi időnk, de az érzés halkan, biztosan egyre csak erősödött.
+                </p>
+                <p className="text-body-elegant mb-6">
+                  Végül teret adtunk annak, ami köztünk formálódott, és felforgattuk egymás életét – a lehető legszebb értelemben.
                 </p>
                 <p className="text-body-elegant">
-                  Alig várjuk, hogy megosszuk veletek, hogyan találkoztunk, 
-                  szerettünk egymásba, és döntöttünk úgy, hogy együtt töltjük az életet. 
-                  Hamarosan itt lesz utazásunk teljes története ehhez a különleges naphoz.
+                  Most pedig alig várjuk, hogy 2026. május 1-jén hivatalosan is összekössük azt, ami már azon az első táncon elkezdődött.
                 </p>
-                <div className="mt-8 font-script text-script-lg text-primary floating-element">
-                  Hamarosan...
-                </div>
               </div>
             </CardContent>
           </Card>
@@ -250,7 +250,7 @@ const WeddingWebsite = () => {
           />
           <img
             src={programImageMobileJpeg800}
-            alt="Menetrend háttér"
+            alt="Program háttér"
             className="w-full h-full object-cover"
             loading="lazy"
             style={{
@@ -270,7 +270,7 @@ const WeddingWebsite = () => {
           />
           <img
             src={programImageJpeg1920}
-            alt="Menetrend háttér"
+            alt="Program háttér"
             className="w-full h-full object-cover"
             loading="lazy"
             style={{
@@ -284,7 +284,7 @@ const WeddingWebsite = () => {
           {/* <div className="section-divider mb-8"></div> */}
           
           <h2 className="text-display-lg text-primary text-center mb-6 floating-element">
-            Menetrend
+            Program
           </h2>
           <p className="text-center text-muted-foreground mb-16 max-w-xl mx-auto font-script text-xl">
             2026. május 1. • Kakucs
@@ -365,14 +365,6 @@ const WeddingWebsite = () => {
                     loading="lazy"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-wedding-gold/20"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-background/90 backdrop-blur-sm rounded-lg p-4">
-                    <p className="font-script text-script-lg text-primary">
-                      Ahol a szerelem otthonra talál
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -547,8 +539,8 @@ const WeddingWebsite = () => {
                   Vagy vedd fel velünk a kapcsolatot
                 </h3>
                 <p className="text-body-elegant text-muted-foreground mb-8">
-                  Ha bármilyen kérdésed van, vagy segítségre van szükséged a visszajelzéssel, 
-                  bátran keress minket közvetlenül!
+                  Ha bármilyen kérdésed van, vagy segítségre van szükséged, 
+                  bátran keress minket!
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8">

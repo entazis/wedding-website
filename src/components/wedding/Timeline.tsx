@@ -164,15 +164,6 @@ import {
             </div>
           ))}
         </div>
-        
-        {/* End decoration */}
-        <div className="flex justify-center mt-6">
-          <div className="flex items-center gap-3">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary/40"></div>
-            <Heart className="w-6 h-6 text-primary animate-pulse" />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary/40"></div>
-          </div>
-        </div>
       </div>
     );
   };
