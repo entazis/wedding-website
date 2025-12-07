@@ -67,17 +67,7 @@ export default {
       },
       fontFamily: {
         display: ["Cormorant Garamond", "Georgia", "Times New Roman", "serif"],
-        body: [
-          "Inter",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif",
-        ],
+        body: ["Lora", "Georgia", "Times New Roman", "serif"],
         script: [
           "Eyesome Script",
           "Brush Script MT",

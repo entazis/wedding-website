@@ -51,11 +51,13 @@ This directory should contain the self-hosted font files for the wedding website
 
 ### 3. Eyesome Script (Decorative Script Font)
 
-- Weight: 400 (Regular)
-- Subset: latin-ext (if available, otherwise latin)
-- Files needed:
-  - eyesome-script-latin-ext-regular.woff2
-  - eyesome-script-latin-ext-regular.woff
+**Note:** Eyesome Script is not available on Google Fonts. The website uses system font fallbacks instead:
+
+- Brush Script MT
+- Lucida Handwriting
+- Generic cursive font
+
+No font files are needed for Eyesome Script as browsers will automatically use available system fonts from the fallback stack.
 
 ## How to Download
 

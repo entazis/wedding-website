@@ -154,9 +154,15 @@ function generateFilename(fontFamily, weight, style, format) {
     return `cormorant-garamond-v16-latin-ext-${
       styleStr || weightStr
     }.${format}`;
-  } else if (fontFamily === "Inter") {
+  } else if (fontFamily === "Lora") {
     const weightStr = weight === 400 ? "regular" : weight.toString();
-    return `inter-v18-latin-ext-${weightStr}.${format}`;
+    const styleStr =
+      style === "regular"
+        ? ""
+        : style === "italic" && weight === 400
+        ? "italic"
+        : `${weightStr}${style}`;
+    return `lora-v32-latin-ext-${styleStr || weightStr}.${format}`;
   } else if (fontFamily === "Eyesome Script") {
     return `eyesome-script-latin-ext-regular.${format}`;
   }
@@ -180,15 +186,12 @@ async function downloadFonts() {
       styles: ["", "italic"],
     },
     {
-      name: "Inter",
-      weights: [200, 300, 400, 500, 600, 700],
-      styles: [""],
+      name: "Lora",
+      weights: [400, 500, 600, 700],
+      styles: ["", "italic"],
     },
-    {
-      name: "Eyesome Script",
-      weights: [400],
-      styles: [""],
-    },
+    // Eyesome Script is not available on Google Fonts
+    // Using system font fallbacks: Brush Script MT, Lucida Handwriting, cursive
   ];
 
   for (const font of fonts) {

@@ -91,67 +91,74 @@
        url('/fonts/cormorant-garamond-v16-latin-ext-700italic.woff') format('woff');
 }
 
-/* Inter - Body and form font */
+/* Lora - Body and form font (elegant serif with calligraphic roots) */
 @font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-  src: url('/fonts/inter-v18-latin-ext-200.woff2') format('woff2'),
-       url('/fonts/inter-v18-latin-ext-200.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('/fonts/inter-v18-latin-ext-300.woff2') format('woff2'),
-       url('/fonts/inter-v18-latin-ext-300.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Inter';
+  font-family: 'Lora';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/inter-v18-latin-ext-regular.woff2') format('woff2'),
-       url('/fonts/inter-v18-latin-ext-regular.woff') format('woff');
+  src: url('/fonts/lora-v32-latin-ext-regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/lora-v32-latin-ext-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/inter-v18-latin-ext-500.woff2') format('woff2'),
-       url('/fonts/inter-v18-latin-ext-500.woff') format('woff');
+  src: url('/fonts/lora-v32-latin-ext-500.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/lora-v32-latin-ext-500italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/inter-v18-latin-ext-600.woff2') format('woff2'),
-       url('/fonts/inter-v18-latin-ext-600.woff') format('woff');
+  src: url('/fonts/lora-v32-latin-ext-600.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/lora-v32-latin-ext-600italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/inter-v18-latin-ext-700.woff2') format('woff2'),
-       url('/fonts/inter-v18-latin-ext-700.woff') format('woff');
+  src: url('/fonts/lora-v32-latin-ext-700.woff2') format('woff2');
 }
 
-/* Eyesome Script - Decorative script font */
 @font-face {
-  font-family: 'Eyesome Script';
-  font-style: normal;
-  font-weight: 400;
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
   font-display: swap;
-  src: url('/fonts/eyesome-script-latin-ext-regular.woff2') format('woff2'),
-       url('/fonts/eyesome-script-latin-ext-regular.woff') format('woff');
+  src: url('/fonts/lora-v32-latin-ext-700italic.woff2') format('woff2');
 }
+
+/* Eyesome Script - Decorative script font
+ * Note: Eyesome Script is not available on Google Fonts.
+ * The font-family declaration in CSS uses fallback fonts:
+ * 'Eyesome Script', 'Brush Script MT', 'Lucida Handwriting', cursive
+ * Browsers will automatically fall back to available system fonts.
+ */
