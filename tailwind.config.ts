@@ -66,9 +66,24 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Cormorant Garamond", "serif"],
-        body: ["Eyesome Script", "cursive"],
-        script: ["Eyesome Script", "cursive"],
+        display: ["Cormorant Garamond", "Georgia", "Times New Roman", "serif"],
+        body: [
+          "Inter",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+        script: [
+          "Eyesome Script",
+          "Brush Script MT",
+          "Lucida Handwriting",
+          "cursive",
+        ],
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
