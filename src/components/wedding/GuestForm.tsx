@@ -1,6 +1,7 @@
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -50,14 +51,10 @@ const guestFormSchema = z.object({
     .number()
     .min(1, 'Legalább 1 főnek kell lennie')
     .max(5, 'Maximum 5 fő lehet'),
-  foodAllergies: z
-    .string()
-    .max(500, 'Az étel allergiák leírása maximum 500 karakter lehet')
-    .optional(),
-  dietaryRestrictions: z
-    .string()
-    .max(500, 'Az étkezési megszorítások leírása maximum 500 karakter lehet')
-    .optional(),
+  dietaryRequirements: z
+    .array(z.enum(['vegetarian', 'vegan', 'gluten-free', 'lactose-free', 'nut-allergy', 'shellfish-allergy', 'other']))
+    .optional()
+    .default([]),
   specialRequests: z
     .string()
     .max(1000, 'A különleges kérések maximum 1000 karakter lehetnek')
@@ -83,8 +80,7 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
       phone: '',
       attendance: undefined,
       guestCount: 1,
-      foodAllergies: '',
-      dietaryRestrictions: '',
+      dietaryRequirements: [],
       specialRequests: '',
     },
   });
@@ -103,8 +99,9 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
         phone: data.phone,
         attendance: data.attendance,
         guestCount: data.guestCount,
-        foodAllergies: data.foodAllergies,
-        dietaryRestrictions: data.dietaryRestrictions,
+        dietaryRequirements: data.dietaryRequirements && data.dietaryRequirements.length > 0
+          ? data.dietaryRequirements.join(', ')
+          : undefined,
         specialRequests: data.specialRequests,
       });
       
@@ -283,16 +280,23 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                     <FormLabel className="text-foreground font-medium">
                       Vendégek száma (téged is beleértve) *
                     </FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        min="1"
-                        max="10"
-                        className="wedding-input"
-                        {...field}
-                        onChange={(e) => field.onChange(parseInt(e.target.value) || 1)}
-                      />
-                    </FormControl>
+                    <Select
+                      onValueChange={(value) => field.onChange(parseInt(value))}
+                      value={field.value?.toString()}
+                    >
+                      <FormControl>
+                        <SelectTrigger className="wedding-input">
+                          <SelectValue placeholder="Válassz egy számot" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {[1, 2, 3, 4, 5, 6].map((count) => (
+                          <SelectItem key={count} value={count.toString()}>
+                            {count} {count === 1 ? 'fő' : 'fő'}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <FormDescription>
                       Hány fővel érkezel összesen?
                     </FormDescription>
@@ -302,55 +306,64 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
               />
             )}
 
-            {/* Food Allergies - only show if attending */}
+            {/* Dietary Requirements - only show if attending */}
             {showGuestDetails && (
               <FormField
                 control={form.control}
-                name="foodAllergies"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-foreground font-medium">
-                      Étel allergiák
-                    </FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Pl.: mogyoró, tenger gyümölcsei, laktóz..."
-                        className="wedding-input min-h-[80px] resize-none"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      Kérjük, sorold fel az összes étel allergiádat
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            )}
-
-            {/* Dietary Restrictions - only show if attending */}
-            {showGuestDetails && (
-              <FormField
-                control={form.control}
-                name="dietaryRestrictions"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-foreground font-medium">
-                      Étkezési megszorítások
-                    </FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Pl.: vegetáriánus, vegán, gluténmentes..."
-                        className="wedding-input min-h-[80px] resize-none"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      Speciális étkezési igények (vegetáriánus, vegán, stb.)
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
+                name="dietaryRequirements"
+                render={({ field }) => {
+                  const dietaryOptions: Array<{
+                    value: 'vegetarian' | 'vegan' | 'gluten-free' | 'lactose-free' | 'nut-allergy' | 'shellfish-allergy' | 'other';
+                    label: string;
+                  }> = [
+                    { value: 'vegetarian', label: 'Vegetáriánus' },
+                    { value: 'vegan', label: 'Vegán' },
+                    { value: 'gluten-free', label: 'Gluténmentes' },
+                    { value: 'lactose-free', label: 'Laktózmentes' },
+                    { value: 'nut-allergy', label: 'Mogyoróallergia' },
+                    { value: 'shellfish-allergy', label: 'Tenger gyümölcsei allergia' },
+                    { value: 'other', label: 'Egyéb' },
+                  ];
+                  const currentValue = field.value || [];
+                  return (
+                    <FormItem>
+                      <FormLabel className="text-foreground font-medium">
+                        Étkezési igények / Allergiák
+                      </FormLabel>
+                      <div className="space-y-3">
+                        {dietaryOptions.map((option) => {
+                          const isChecked = currentValue.includes(option.value);
+                          return (
+                            <FormItem
+                              key={option.value}
+                              className="flex flex-row items-start space-x-3 space-y-0"
+                            >
+                              <FormControl>
+                                <Checkbox
+                                  checked={isChecked}
+                                  onCheckedChange={(checked) => {
+                                    if (checked) {
+                                      field.onChange([...currentValue, option.value]);
+                                    } else {
+                                      field.onChange(currentValue.filter((v) => v !== option.value));
+                                    }
+                                  }}
+                                />
+                              </FormControl>
+                              <FormLabel className="font-normal cursor-pointer">
+                                {option.label}
+                              </FormLabel>
+                            </FormItem>
+                          );
+                        })}
+                      </div>
+                      <FormDescription>
+                        Kérjük, válaszd ki az étkezési igényeidet vagy allergiáidat
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
               />
             )}
 

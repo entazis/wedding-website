@@ -11,8 +11,7 @@ export interface GuestFormSubmission {
   phone?: string;
   attendance: "yes" | "no" | "maybe";
   guestCount: number;
-  foodAllergies?: string;
-  dietaryRestrictions?: string;
+  dietaryRequirements?: string | string[];
   specialRequests?: string;
   timestamp: string;
 }
@@ -51,7 +50,11 @@ export const submitGuestFormToSheets = async (
     const formData = new FormData();
     Object.entries(submissionData).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
-        formData.append(key, String(value));
+        if (key === "dietaryRequirements" && Array.isArray(value)) {
+          formData.append(key, value.join(", "));
+        } else {
+          formData.append(key, String(value));
+        }
       }
     });
 
