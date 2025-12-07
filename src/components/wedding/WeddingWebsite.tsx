@@ -207,7 +207,11 @@ const WeddingWebsite = () => {
       {/* Our Story Section */}
       <section id="story" className="section-spacing bg-gradient-romantic pattern-overlay">
         <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <div className="section-divider mb-8"></div>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px bg-primary/40 flex-1 max-w-20"></div>
+            <Heart className="text-primary animate-pulse-slow drop-shadow-md" size={24} />
+            <div className="h-px bg-primary/40 flex-1 max-w-20"></div>
+          </div>
           <h2 className="text-display-lg text-primary mb-12 floating-element">
             Szerelmünk története
           </h2>
@@ -293,7 +297,11 @@ const WeddingWebsite = () => {
       {/* Location Section */}
       <section id="location" className="section-spacing bg-gradient-gold pattern-overlay">
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="section-divider mb-8"></div>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px bg-primary/40 flex-1 max-w-20"></div>
+            <Heart className="text-primary animate-pulse-slow drop-shadow-md" size={24} />
+            <div className="h-px bg-primary/40 flex-1 max-w-20"></div>
+          </div>
           <h2 className="text-display-lg text-primary text-center mb-16 floating-element">
             Helyszín
           </h2>
@@ -518,7 +526,11 @@ const WeddingWebsite = () => {
       {/* RSVP Section */}
       <section id="rsvp" className="section-spacing bg-gradient-primary text-primary-foreground pattern-overlay">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="section-divider mb-8"></div>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px bg-primary-foreground/40 flex-1 max-w-20"></div>
+            <Heart className="text-primary-foreground animate-pulse-slow drop-shadow-md" size={24} />
+            <div className="h-px bg-primary-foreground/40 flex-1 max-w-20"></div>
+          </div>
           <h2 className="text-display-lg mb-12 text-center floating-element">
             Csatlakozz az ünnepléshez
           </h2>
