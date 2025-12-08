@@ -481,15 +481,15 @@ const WeddingWebsite = () => {
                           gyonitaxi@gmail.com
                         </a>
                       </div>
-                      <div className="flex items-start gap-3">
-                        <MapPin className="text-primary flex-shrink-0 mt-1" size={18} />
+                      <div className="flex items-center gap-3">
+                        <MapPin className="text-primary flex-shrink-0" size={18} />
                         <a 
-                          href="https://www.dabas-gyonitaxi.hu/" 
+                          href="https://dabas-gyonitaxi.hu/" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-primary hover:underline"
+                          className="text-primary hover:underline break-all"
                         >
-                          www.dabas-gyonitaxi.hu
+                          dabas-gyonitaxi.hu
                         </a>
                       </div>
                     </div>
