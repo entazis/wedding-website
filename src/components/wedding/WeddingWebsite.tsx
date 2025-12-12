@@ -27,6 +27,7 @@ import heroImageJpeg1200 from '@/assets/IMG_3102.jpg?w=1200&q=85';
 import heroImageJpeg1920 from '@/assets/IMG_3102.jpg?w=1920&q=85';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { smoothScrollToElement } from '@/lib/utils';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import GuestForm from './GuestForm';
@@ -102,7 +103,7 @@ const WeddingWebsite = () => {
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      smoothScrollToElement(element, 3000);
     }
   };
 
