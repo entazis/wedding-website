@@ -75,8 +75,7 @@ function getOrCreateSheet() {
       "Phone",
       "Attendance",
       "Guest Count",
-      "Food Allergies",
-      "Dietary Restrictions",
+      "Dietary Requirements",
       "Special Requests",
     ];
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
@@ -93,9 +92,8 @@ function getOrCreateSheet() {
     sheet.setColumnWidth(4, 150); // Phone
     sheet.setColumnWidth(5, 100); // Attendance
     sheet.setColumnWidth(6, 100); // Guest Count
-    sheet.setColumnWidth(7, 300); // Food Allergies
-    sheet.setColumnWidth(8, 300); // Dietary Restrictions
-    sheet.setColumnWidth(9, 400); // Special Requests
+    sheet.setColumnWidth(7, 300); // Dietary Requirements
+    sheet.setColumnWidth(8, 400); // Special Requests
   }
 
   return sheet;
@@ -113,8 +111,7 @@ function parseFormData(e) {
     phone: params.phone || "",
     attendance: params.attendance || "",
     guestCount: parseInt(params.guestCount) || 1,
-    foodAllergies: params.foodAllergies || "",
-    dietaryRestrictions: params.dietaryRestrictions || "",
+    dietaryRequirements: params.dietaryRequirements || "",
     specialRequests: params.specialRequests || "",
   };
 }
@@ -130,8 +127,7 @@ function writeToSheet(sheet, formData) {
     formData.phone,
     formData.attendance,
     formData.guestCount,
-    formData.foodAllergies,
-    formData.dietaryRestrictions,
+    formData.dietaryRequirements,
     formData.specialRequests,
   ];
 
@@ -177,8 +173,7 @@ function sendNotificationEmail(formData) {
 ✅ Részvétel: ${attendanceText[formData.attendance] || formData.attendance}
 👥 Vendégek száma: ${formData.guestCount}
 
-🥜 Étel allergiák: ${formData.foodAllergies || "Nincs"}
-🥗 Étkezési megszorítások: ${formData.dietaryRestrictions || "Nincs"}
+🥗 Étkezési igények / Allergiák: ${formData.dietaryRequirements || "Nincs"}
 💬 Különleges kérések: ${formData.specialRequests || "Nincs"}
 
 ⏰ Beküldve: ${formData.timestamp.toLocaleString("hu-HU")}
