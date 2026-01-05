@@ -47,9 +47,6 @@ export const submitGuestFormToSheets = async (
   };
 
   try {
-    // Debug: log what we're sending
-    console.log("Submitting to Google Sheets:", submissionData);
-
     // Build URL-encoded form data - this works reliably with e.parameter in Google Apps Script
     const formBody = new URLSearchParams();
     formBody.append("name", submissionData.name);
@@ -69,8 +66,6 @@ export const submitGuestFormToSheets = async (
     formBody.append("specialRequests", submissionData.specialRequests || "");
     formBody.append("timestamp", submissionData.timestamp);
 
-    console.log("URL-encoded body:", formBody.toString());
-
     const response = await fetch(GOOGLE_SHEETS_URL, {
       method: "POST",
       headers: {
@@ -84,9 +79,7 @@ export const submitGuestFormToSheets = async (
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    // Log raw response for debugging
     const responseText = await response.text();
-    console.log("Raw response from Google Sheets:", responseText);
 
     let result: GoogleSheetsResponse;
     try {
@@ -95,8 +88,6 @@ export const submitGuestFormToSheets = async (
       console.error("Failed to parse response as JSON:", responseText);
       throw new Error("A szerver válasza nem megfelelő formátumú");
     }
-
-    console.log("Parsed response:", result);
 
     if (result.result !== "success") {
       throw new Error(

@@ -23,7 +23,7 @@ import { toast } from '@/components/ui/sonner';
 import { Textarea } from '@/components/ui/textarea';
 import { submitGuestFormToSheets } from '@/services/googleSheets';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AlertCircle, Heart, Loader2 } from 'lucide-react';
+import { AlertCircle, Heart, Loader2, Minus, Plus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -76,7 +76,8 @@ const guestFormSchema = z.object({
 ).refine(
   (data) => {
     // Validate dietary requirement counts don't exceed guestCount
-    if (data.guestCount && data.dietaryRequirements) {
+    // Only validate when attendance is not 'no' (dietary requirements are irrelevant if not attending)
+    if (data.attendance !== 'no' && data.guestCount && data.dietaryRequirements) {
       const maxCount = data.guestCount;
       return Object.values(data.dietaryRequirements).every((count) => count >= 0 && count <= maxCount);
     }
@@ -155,7 +156,6 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
     try {
       // Format dietary requirements as readable string
       let dietaryRequirementsString: string | undefined = undefined;
-      console.log('Raw dietaryRequirements data:', data.dietaryRequirements);
       if (data.dietaryRequirements && Object.keys(data.dietaryRequirements).length > 0) {
         const dietaryOptionsMap: Record<string, string> = {
           'vegetarian': 'Vegetáriánus',
@@ -168,7 +168,6 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
         };
         const parts: string[] = [];
         Object.entries(data.dietaryRequirements).forEach(([key, count]) => {
-          console.log(`Processing dietary: ${key} = ${count} (type: ${typeof count})`);
           if (count > 0) {
             const label = dietaryOptionsMap[key] || key;
             parts.push(`${label}: ${count}`);
@@ -178,7 +177,6 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
           dietaryRequirementsString = parts.join(', ');
         }
       }
-      console.log('Formatted dietaryRequirementsString:', dietaryRequirementsString);
 
       await submitGuestFormToSheets({
         name: data.name,
@@ -448,6 +446,49 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                           } else {
                             // Number input for multiple guests
                             const count = currentValue[option.value] || 0;
+                            const maxCount = guestCountValue || 6;
+                            const displayValue = count === 0 ? '' : count.toString();
+                            
+                            const handleIncrement = (): void => {
+                              const newValue = { ...currentValue };
+                              const newCount = Math.min((count || 0) + 1, maxCount);
+                              if (newCount > 0) {
+                                newValue[option.value] = newCount;
+                              }
+                              field.onChange(newValue);
+                            };
+                            
+                            const handleDecrement = (): void => {
+                              const newValue = { ...currentValue };
+                              const newCount = Math.max((count || 0) - 1, 0);
+                              if (newCount > 0) {
+                                newValue[option.value] = newCount;
+                              } else {
+                                delete newValue[option.value];
+                              }
+                              field.onChange(newValue);
+                            };
+                            
+                            const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+                              const newValue = { ...currentValue };
+                              const inputValue = e.target.value;
+                              if (inputValue === '') {
+                                delete newValue[option.value];
+                                field.onChange(newValue);
+                                return;
+                              }
+                              const numValue = parseInt(inputValue, 10);
+                              if (!isNaN(numValue)) {
+                                const clampedValue = Math.max(0, Math.min(numValue, maxCount));
+                                if (clampedValue > 0) {
+                                  newValue[option.value] = clampedValue;
+                                } else {
+                                  delete newValue[option.value];
+                                }
+                                field.onChange(newValue);
+                              }
+                            };
+                            
                             return (
                               <FormItem
                                 key={option.value}
@@ -457,23 +498,39 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                                   {option.label}:
                                 </FormLabel>
                                 <FormControl>
-                                  <Input
-                                    type="number"
-                                    min={0}
-                                    max={guestCountValue || 6}
-                                    value={count}
-                                    onChange={(e) => {
-                                      const newValue = { ...currentValue };
-                                      const numValue = parseInt(e.target.value) || 0;
-                                      if (numValue > 0) {
-                                        newValue[option.value] = numValue;
-                                      } else {
-                                        delete newValue[option.value];
-                                      }
-                                      field.onChange(newValue);
-                                    }}
-                                    className="wedding-input w-20"
-                                  />
+                                  <div className="flex items-center gap-2">
+                                    <Button
+                                      type="button"
+                                      variant="outline"
+                                      size="icon"
+                                      onClick={handleDecrement}
+                                      disabled={count === 0}
+                                      className="h-11 w-11 min-w-[44px] touch-manipulation"
+                                      aria-label="Csökkentés"
+                                    >
+                                      <Minus className="h-4 w-4" />
+                                    </Button>
+                                    <Input
+                                      type="number"
+                                      min={0}
+                                      max={maxCount}
+                                      value={displayValue}
+                                      placeholder="0"
+                                      onChange={handleInputChange}
+                                      className="wedding-input w-20 text-center"
+                                    />
+                                    <Button
+                                      type="button"
+                                      variant="outline"
+                                      size="icon"
+                                      onClick={handleIncrement}
+                                      disabled={count >= maxCount}
+                                      className="h-11 w-11 min-w-[44px] touch-manipulation"
+                                      aria-label="Növelés"
+                                    >
+                                      <Plus className="h-4 w-4" />
+                                    </Button>
+                                  </div>
                                 </FormControl>
                                 <span className="text-sm text-muted-foreground">
                                   fő
