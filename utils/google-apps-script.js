@@ -101,19 +101,53 @@ function getOrCreateSheet() {
 
 /**
  * Parses form data from the POST request
+ * Supports both URL-encoded form data (e.parameter) and JSON body
  */
 function parseFormData(e) {
-  const params = e.parameter;
+  let data = {};
 
-  return {
-    name: params.name || "",
-    email: params.email || "",
-    phone: params.phone || "",
-    attendance: params.attendance || "",
-    guestCount: parseInt(params.guestCount) || 1,
-    dietaryRequirements: params.dietaryRequirements || "",
-    specialRequests: params.specialRequests || "",
+  // Debug: Log the entire request object
+  console.log("Request object keys:", Object.keys(e));
+  console.log("e.parameter exists:", !!e.parameter);
+  console.log("postData exists:", !!e.postData);
+
+  if (e.parameter) {
+    console.log("e.parameter:", JSON.stringify(e.parameter));
+  }
+
+  if (e.postData) {
+    console.log("postData type:", e.postData.type);
+    console.log("postData contents:", e.postData.contents);
+  }
+
+  // Try e.parameter first (works with URL-encoded form data)
+  if (e.parameter && Object.keys(e.parameter).length > 0) {
+    data = e.parameter;
+    console.log("Using e.parameter data");
+  }
+  // Fall back to parsing JSON from POST body
+  else if (e.postData && e.postData.contents) {
+    try {
+      data = JSON.parse(e.postData.contents);
+      console.log("Parsed JSON data:", JSON.stringify(data));
+    } catch (jsonError) {
+      console.log("JSON parse error:", jsonError.message);
+    }
+  }
+
+  const result = {
+    name: data.name || "",
+    email: data.email || "",
+    phone: data.phone || "",
+    attendance: data.attendance || "",
+    guestCount: parseInt(data.guestCount) || 1,
+    dietaryRequirements: data.dietaryRequirements || "",
+    specialRequests: data.specialRequests || "",
   };
+
+  console.log("Final parsed result:", JSON.stringify(result));
+
+  return result;
 }
 
 /**
@@ -168,13 +202,13 @@ function sendNotificationEmail(formData) {
 Új visszajelzés érkezett az esküvői weboldalról:
 
 👤 Név: ${formData.name}
-📧 Email: ${formData.email || "Nincs megadva"}
-📱 Telefon: ${formData.phone || "Nincs megadva"}
+📧 Email: ${formData.email || "-"}
+📱 Telefon: ${formData.phone || "-"}
 ✅ Részvétel: ${attendanceText[formData.attendance] || formData.attendance}
 👥 Vendégek száma: ${formData.guestCount}
 
-🥗 Étkezési igények / Allergiák: ${formData.dietaryRequirements || "Nincs"}
-💬 Különleges kérések: ${formData.specialRequests || "Nincs"}
+🥗 Étkezési igények / Allergiák: ${formData.dietaryRequirements || "-"}
+💬 Különleges kérések: ${formData.specialRequests || "-"}
 
 ⏰ Beküldve: ${formData.timestamp.toLocaleString("hu-HU")}
 

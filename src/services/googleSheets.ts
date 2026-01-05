@@ -19,6 +19,7 @@ export interface GuestFormSubmission {
 export interface GoogleSheetsResponse {
   result: "success" | "error";
   error?: string;
+  message?: string;
   row?: number;
 }
 
@@ -46,21 +47,36 @@ export const submitGuestFormToSheets = async (
   };
 
   try {
-    // Create FormData for the submission
-    const formData = new FormData();
-    Object.entries(submissionData).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
-        if (key === "dietaryRequirements" && Array.isArray(value)) {
-          formData.append(key, value.join(", "));
-        } else {
-          formData.append(key, String(value));
-        }
-      }
-    });
+    // Debug: log what we're sending
+    console.log("Submitting to Google Sheets:", submissionData);
+
+    // Build URL-encoded form data - this works reliably with e.parameter in Google Apps Script
+    const formBody = new URLSearchParams();
+    formBody.append("name", submissionData.name);
+    formBody.append("email", submissionData.email || "");
+    formBody.append("phone", submissionData.phone || "");
+    formBody.append("attendance", submissionData.attendance);
+    // For non-attending guests, send 0. For attending guests, use the actual count or default to 1
+    const guestCountValue =
+      submissionData.attendance === "no"
+        ? "0"
+        : String(submissionData.guestCount || 1);
+    formBody.append("guestCount", guestCountValue);
+    formBody.append(
+      "dietaryRequirements",
+      String(submissionData.dietaryRequirements || "")
+    );
+    formBody.append("specialRequests", submissionData.specialRequests || "");
+    formBody.append("timestamp", submissionData.timestamp);
+
+    console.log("URL-encoded body:", formBody.toString());
 
     const response = await fetch(GOOGLE_SHEETS_URL, {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formBody.toString(),
       mode: "cors",
     });
 
@@ -68,11 +84,24 @@ export const submitGuestFormToSheets = async (
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const result: GoogleSheetsResponse = await response.json();
+    // Log raw response for debugging
+    const responseText = await response.text();
+    console.log("Raw response from Google Sheets:", responseText);
+
+    let result: GoogleSheetsResponse;
+    try {
+      result = JSON.parse(responseText);
+    } catch (parseError) {
+      console.error("Failed to parse response as JSON:", responseText);
+      throw new Error("A szerver válasza nem megfelelő formátumú");
+    }
+
+    console.log("Parsed response:", result);
 
     if (result.result !== "success") {
       throw new Error(
         result.error ||
+          result.message ||
           "Ismeretlen hiba történt a Google Sheets submission során"
       );
     }
