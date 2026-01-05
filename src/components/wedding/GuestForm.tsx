@@ -53,9 +53,9 @@ const guestFormSchema = z.object({
     .max(6, 'Maximum 6 fő lehet')
     .optional(),
   dietaryRequirements: z
-    .array(z.enum(['vegetarian', 'vegan', 'gluten-free', 'lactose-free', 'nut-allergy', 'shellfish-allergy', 'other']))
+    .record(z.string(), z.number().min(0).max(6))
     .optional()
-    .default([]),
+    .default({}),
   specialRequests: z
     .string()
     .max(1000, 'A különleges kérések maximum 1000 karakter lehetnek')
@@ -72,6 +72,19 @@ const guestFormSchema = z.object({
   {
     message: 'A vendégek száma kötelező, ha részt veszel az esküvőn',
     path: ['guestCount'],
+  }
+).refine(
+  (data) => {
+    // Validate dietary requirement counts don't exceed guestCount
+    if (data.guestCount && data.dietaryRequirements) {
+      const maxCount = data.guestCount;
+      return Object.values(data.dietaryRequirements).every((count) => count >= 0 && count <= maxCount);
+    }
+    return true;
+  },
+  {
+    message: 'Az étkezési igények száma nem lehet több, mint a vendégek száma',
+    path: ['dietaryRequirements'],
   }
 );
 
@@ -94,22 +107,43 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
       phone: '',
       attendance: undefined,
       guestCount: undefined,
-      dietaryRequirements: [],
+      dietaryRequirements: {},
       specialRequests: '',
     },
   });
 
   const attendanceValue = form.watch('attendance');
+  const guestCountValue = form.watch('guestCount');
 
   // Reset guestCount when attendance changes to "no"
   useEffect(() => {
     if (attendanceValue === 'no') {
       form.setValue('guestCount', undefined, { shouldValidate: false });
+      form.setValue('dietaryRequirements', {}, { shouldValidate: false });
     } else if ((attendanceValue === 'yes' || attendanceValue === 'maybe') && !form.getValues('guestCount')) {
       // Set default value when switching to yes/maybe if no value exists
       form.setValue('guestCount', 1, { shouldValidate: false });
     }
   }, [attendanceValue, form]);
+
+  // Cap dietary requirement counts when guestCount decreases
+  useEffect(() => {
+    if (guestCountValue && guestCountValue > 0) {
+      const currentDietary = form.getValues('dietaryRequirements') || {};
+      let needsUpdate = false;
+      const updatedDietary = { ...currentDietary };
+      Object.keys(updatedDietary).forEach((key) => {
+        const count = updatedDietary[key];
+        if (count > guestCountValue) {
+          updatedDietary[key] = guestCountValue;
+          needsUpdate = true;
+        }
+      });
+      if (needsUpdate) {
+        form.setValue('dietaryRequirements', updatedDietary, { shouldValidate: true });
+      }
+    }
+  }, [guestCountValue, form]);
 
 
 
@@ -119,15 +153,40 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
     setErrorMessage('');
 
     try {
+      // Format dietary requirements as readable string
+      let dietaryRequirementsString: string | undefined = undefined;
+      console.log('Raw dietaryRequirements data:', data.dietaryRequirements);
+      if (data.dietaryRequirements && Object.keys(data.dietaryRequirements).length > 0) {
+        const dietaryOptionsMap: Record<string, string> = {
+          'vegetarian': 'Vegetáriánus',
+          'vegan': 'Vegán',
+          'gluten-free': 'Gluténmentes',
+          'lactose-free': 'Laktózmentes',
+          'nut-allergy': 'Dióallergia',
+          'shellfish-allergy': 'Rákallergia',
+          'other': 'Egyéb',
+        };
+        const parts: string[] = [];
+        Object.entries(data.dietaryRequirements).forEach(([key, count]) => {
+          console.log(`Processing dietary: ${key} = ${count} (type: ${typeof count})`);
+          if (count > 0) {
+            const label = dietaryOptionsMap[key] || key;
+            parts.push(`${label}: ${count}`);
+          }
+        });
+        if (parts.length > 0) {
+          dietaryRequirementsString = parts.join(', ');
+        }
+      }
+      console.log('Formatted dietaryRequirementsString:', dietaryRequirementsString);
+
       await submitGuestFormToSheets({
         name: data.name,
         email: data.email,
         phone: data.phone,
         attendance: data.attendance,
         guestCount: data.attendance === 'no' ? undefined : data.guestCount,
-        dietaryRequirements: data.dietaryRequirements && data.dietaryRequirements.length > 0
-          ? data.dietaryRequirements.join(', ')
-          : undefined,
+        dietaryRequirements: dietaryRequirementsString,
         specialRequests: data.specialRequests,
       });
       
@@ -347,7 +406,8 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                     { value: 'lactose-free', label: 'Laktózmentes' },
                     { value: 'other', label: 'Egyéb' },
                   ];
-                  const currentValue = field.value || [];
+                  const currentValue = field.value || {};
+                  const isSingleGuest = guestCountValue === 1;
                   return (
                     <FormItem>
                       <FormLabel className="text-foreground font-medium">
@@ -355,33 +415,75 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                       </FormLabel>
                       <div className="space-y-3">
                         {dietaryOptions.map((option) => {
-                          const isChecked = currentValue.includes(option.value);
-                          return (
-                            <FormItem
-                              key={option.value}
-                              className="flex flex-row items-start space-x-3 space-y-0"
-                            >
-                              <FormControl>
-                                <Checkbox
-                                  checked={isChecked}
-                                  onCheckedChange={(checked) => {
-                                    if (checked) {
-                                      field.onChange([...currentValue, option.value]);
-                                    } else {
-                                      field.onChange(currentValue.filter((v) => v !== option.value));
-                                    }
-                                  }}
-                                />
-                              </FormControl>
-                              <FormLabel className="font-normal cursor-pointer">
-                                {option.label}
-                              </FormLabel>
-                            </FormItem>
-                          );
+                          if (isSingleGuest) {
+                            // Checkbox interface for single guest
+                            const isChecked = (currentValue[option.value] || 0) > 0;
+                            return (
+                              <FormItem
+                                key={option.value}
+                                className="flex flex-row items-start space-x-3 space-y-0"
+                              >
+                                <FormControl>
+                                  <Checkbox
+                                    checked={isChecked}
+                                    onCheckedChange={(checked) => {
+                                      const newValue = { ...currentValue };
+                                      if (checked) {
+                                        newValue[option.value] = 1;
+                                      } else {
+                                        delete newValue[option.value];
+                                      }
+                                      field.onChange(newValue);
+                                    }}
+                                  />
+                                </FormControl>
+                                <FormLabel className="font-normal cursor-pointer">
+                                  {option.label}
+                                </FormLabel>
+                              </FormItem>
+                            );
+                          } else {
+                            // Number input for multiple guests
+                            const count = currentValue[option.value] || 0;
+                            return (
+                              <FormItem
+                                key={option.value}
+                                className="flex flex-row items-center space-x-3 space-y-0"
+                              >
+                                <FormLabel className="font-normal flex-1">
+                                  {option.label}:
+                                </FormLabel>
+                                <FormControl>
+                                  <Input
+                                    type="number"
+                                    min={0}
+                                    max={guestCountValue || 6}
+                                    value={count}
+                                    onChange={(e) => {
+                                      const newValue = { ...currentValue };
+                                      const numValue = parseInt(e.target.value) || 0;
+                                      if (numValue > 0) {
+                                        newValue[option.value] = numValue;
+                                      } else {
+                                        delete newValue[option.value];
+                                      }
+                                      field.onChange(newValue);
+                                    }}
+                                    className="wedding-input w-20"
+                                  />
+                                </FormControl>
+                                <span className="text-sm text-muted-foreground">
+                                  fő
+                                </span>
+                              </FormItem>
+                            );
+                          }
                         })}
                       </div>
                       <FormDescription>
-                        Kérjük, válaszd ki az étkezési igényeidet vagy allergiáidat
+                        {isSingleGuest
+                          ? 'Kérjük, válaszd ki az étkezési igényeidet vagy allergiáidat'
+                          : `Hány vendégnek van étkezési igénye vagy allergiája? (0-${guestCountValue || 6} fő)`}
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
