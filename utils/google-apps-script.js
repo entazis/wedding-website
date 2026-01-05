@@ -202,13 +202,13 @@ function sendNotificationEmail(formData) {
 Új visszajelzés érkezett az esküvői weboldalról:
 
 👤 Név: ${formData.name}
-📧 Email: ${formData.email || "Nincs megadva"}
-📱 Telefon: ${formData.phone || "Nincs megadva"}
+📧 Email: ${formData.email || "-"}
+📱 Telefon: ${formData.phone || "-"}
 ✅ Részvétel: ${attendanceText[formData.attendance] || formData.attendance}
 👥 Vendégek száma: ${formData.guestCount}
 
-🥗 Étkezési igények / Allergiák: ${formData.dietaryRequirements || "Nincs"}
-💬 Különleges kérések: ${formData.specialRequests || "Nincs"}
+🥗 Étkezési igények / Allergiák: ${formData.dietaryRequirements || "-"}
+💬 Különleges kérések: ${formData.specialRequests || "-"}
 
 ⏰ Beküldve: ${formData.timestamp.toLocaleString("hu-HU")}
 
