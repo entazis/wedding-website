@@ -56,7 +56,12 @@ export const submitGuestFormToSheets = async (
     formBody.append("email", submissionData.email || "");
     formBody.append("phone", submissionData.phone || "");
     formBody.append("attendance", submissionData.attendance);
-    formBody.append("guestCount", String(submissionData.guestCount || 1));
+    // For non-attending guests, send 0. For attending guests, use the actual count or default to 1
+    const guestCountValue =
+      submissionData.attendance === "no"
+        ? "0"
+        : String(submissionData.guestCount || 1);
+    formBody.append("guestCount", guestCountValue);
     formBody.append(
       "dietaryRequirements",
       String(submissionData.dietaryRequirements || "")

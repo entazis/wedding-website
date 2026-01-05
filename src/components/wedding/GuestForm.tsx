@@ -405,6 +405,9 @@ const GuestForm: React.FC<GuestFormProps> = ({ onSuccess }) => {
                     { value: 'gluten-free', label: 'Gluténmentes' },
                     { value: 'lactose-free', label: 'Laktózmentes' },
                     { value: 'other', label: 'Egyéb' },
+                    // Disabled options as they are unlikely to be used
+                    // { value: 'nut-allergy', label: 'Dióallergia' },
+                    // { value: 'shellfish-allergy', label: 'Rákallergia' },
                   ];
                   const currentValue = field.value || {};
                   const isSingleGuest = guestCountValue === 1;
