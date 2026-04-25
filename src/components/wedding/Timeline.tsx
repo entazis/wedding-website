@@ -40,31 +40,31 @@ import {
       icon: <Home className="w-5 h-5" />
     },
     {
-      time: "16:00",
+      time: "15:30",
       title: "Játékidő",
       description: "Közös móka, hogy jobban megismerjetek minket és egymást.",
       icon: <Gamepad2 className="w-5 h-5" />
     },
     {
-      time: "17:00",
+      time: "16:30",
       title: 'Polgári "igen"',
       description: "Fogadalmat teszünk és hivatalosan is összekötjük életünket egy megható szertartás keretében.",
       icon: <Heart className="w-5 h-5" />
     },
     {
-      time: "17:45",
+      time: "17:00",
       title: "Kiscsoportos fotók, gratulációk",
       description: "Megörökítjük a közös ünneplést, ezt követően lehetőség nyílik a jótanácsok, életbölcsességek és ajándékok átadására.",
       icon: <Camera className="w-5 h-5" />
     },
     {
-      time: "19:30",
+      time: "19:00",
       title: "Vacsora",
       description: "Koccintás, ízek, jó hangulat – kezdődik a közös lakoma, közben beavatunk benneteket életünk emlékezetes pillanataiba.",
       icon: <UtensilsCrossed className="w-5 h-5" />
     },
     {
-      time: "21:30",
+      time: "21:00",
       title: "Nyitótánc",
       description: "Első táncunk, amivel megnyitjuk a bulit – a parkett mindenkié, táncra fel!",
       icon: <Music className="w-5 h-5" />
