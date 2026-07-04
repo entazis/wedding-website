@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .env
+
+# Gallery media (photos/videos) — served by nginx, not built into the app.
+# Keep these out of git; they're large and regenerated from originals.
+media/

@@ -30,7 +30,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { smoothScrollToElement } from '@/lib/utils';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
-import GuestForm from './GuestForm';
+import Gallery from './gallery/Gallery';
 import Navigation from './Navigation';
 import Timeline from './Timeline';
 
@@ -180,10 +180,10 @@ const WeddingWebsite = () => {
               <div className="h-px bg-white/80 md:bg-wedding-khaki/40 flex-1 max-w-20"></div>
             </div>
             <div className="font-script text-3xl text-white md:text-wedding-khaki/95 mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-md">
-              Szeretettel meghívunk esküvőnkre,
+              Összeházasodtunk!
             </div>
             <div className="font-script text-white md:text-wedding-khaki/95 mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-md text-xl">
-              melynek időpontja és helyszíne:
+              Köszönjük, hogy velünk ünnepeltetek. Íme a nagy nap emlékei:
             </div>
             <p className="font-script text-white md:text-wedding-khaki mb-8 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)] md:drop-shadow-md text-3xl">
               2026. május 1. • Deák Udvarház, Kakucs
@@ -195,11 +195,11 @@ const WeddingWebsite = () => {
           </div>
           
           <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <Button 
-              onClick={() => scrollToSection('rsvp')}
+            <Button
+              onClick={() => scrollToSection('gallery')}
               className="wedding-button text-lg px-8 py-4"
             >
-              Visszajelzés
+              Galéria megtekintése
             </Button>
           </div>
         </div>
@@ -516,32 +516,35 @@ const WeddingWebsite = () => {
         </div>
       </section>
 
-      {/* RSVP Section */}
-      <section id="rsvp" className="section-spacing bg-gradient-primary text-primary-foreground pattern-overlay">
-        <div className="mx-auto max-w-4xl relative z-10 px-4 sm:px-6 lg:px-8">
+      {/* Gallery Section */}
+      <section id="gallery" className="section-spacing bg-gradient-primary text-primary-foreground pattern-overlay">
+        <div className="mx-auto max-w-6xl relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px bg-primary-foreground/40 flex-1 max-w-20"></div>
             <Heart className="text-primary-foreground animate-pulse-slow drop-shadow-md" size={24} />
             <div className="h-px bg-primary-foreground/40 flex-1 max-w-20"></div>
           </div>
-          <h2 className="text-display-lg mb-12 text-center floating-element">
-            Csatlakozz az ünnepléshez
+          <h2 className="text-display-lg mb-4 text-center floating-element">
+            Galéria
           </h2>
-          
+          <p className="text-center text-primary-foreground/90 mb-12 max-w-xl mx-auto font-script text-xl">
+            Fényképek és videók a nagy napról
+          </p>
+
           <div className="mb-12">
-            <GuestForm />
+            <Gallery />
           </div>
-          
+
           {/* Contact Information */}
           <Card className="wedding-card-enhanced bg-background/95 backdrop-blur-md border-primary/20">
             <CardContent className="p-4 sm:p-6 md:p-12">
               <div className="text-center text-foreground">
                 <h3 className="text-display-md text-primary mb-6 floating-element">
-                  Vagy vedd fel velünk a kapcsolatot
+                  Vedd fel velünk a kapcsolatot
                 </h3>
                 <p className="text-body-elegant text-muted-foreground mb-8">
-                  Ha bármilyen kérdésed van, vagy segítségre van szükséged, 
-                  bátran keress minket!
+                  Ha nem kaptad meg a galéria jelszavát, vagy bármilyen kérdésed
+                  van, bátran keress minket!
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8 justify-items-center">

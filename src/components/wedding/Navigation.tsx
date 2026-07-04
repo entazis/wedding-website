@@ -28,7 +28,7 @@ const Navigation = () => {
     { label: 'Történetünk', id: 'story' },
     { label: 'Program', id: 'details' },
     { label: 'Helyszín', id: 'location' },
-    { label: 'Visszajelzés', id: 'rsvp' },
+    { label: 'Galéria', id: 'gallery' },
   ];
 
   return (
