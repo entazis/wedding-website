@@ -18,7 +18,10 @@ async function fetchManifest(): Promise<GalleryManifest | null> {
   const headers: HeadersInit = {};
   const header = getAuthHeader();
   if (header) headers.Authorization = header;
-  const res = await fetch(MANIFEST_URL, { headers, cache: 'no-store' });
+  // credentials: 'omit' keeps the browser from popping its own Basic-Auth
+  // dialog on a 401 — we surface a themed error instead. The explicit
+  // Authorization header above is still sent (same-origin request).
+  const res = await fetch(MANIFEST_URL, { headers, cache: 'no-store', credentials: 'omit' });
   if (!res.ok) return null;
   return (await res.json()) as GalleryManifest;
 }
@@ -128,7 +131,10 @@ const Gallery = () => {
               if (status === 'error') setStatus('locked');
             }}
             placeholder="Jelszó"
-            autoComplete="current-password"
+            autoComplete="off"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             className="text-center text-foreground"
             disabled={status === 'checking'}
             aria-label="Galéria jelszó"

@@ -65,7 +65,10 @@ export function fetchAuthedObjectUrl(url: string): Promise<string> {
     const header = authHeader ?? restoreCredentials();
     if (header) headers.Authorization = header;
 
-    const res = await fetch(url, { headers });
+    // credentials: 'omit' stops the browser from handling a 401 itself (its
+    // native Basic-Auth popup) — a failed request just returns to our code.
+    // Our explicit Authorization header is still sent (same-origin request).
+    const res = await fetch(url, { headers, credentials: 'omit' });
     if (!res.ok) {
       inflight.delete(url);
       throw new Error(`Media request failed: ${res.status}`);
