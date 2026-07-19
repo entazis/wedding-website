@@ -19,8 +19,11 @@ const VideoGallery = ({ videos }: VideoGalleryProps) => {
 
   if (!videos.length) return null;
 
+  // A lone video reads best centered and wide; two or more tile in a grid.
+  const single = videos.length === 1;
+
   return (
-    <div className="grid gap-6 md:grid-cols-2">
+    <div className={single ? 'mx-auto w-full max-w-4xl' : 'grid gap-6 md:grid-cols-2'}>
       {videos.map((video) => (
         <div key={video.id} className="floating-element">
           <div className="relative aspect-video overflow-hidden rounded-xl bg-black shadow-elegant">
