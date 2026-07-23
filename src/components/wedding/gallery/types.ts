@@ -36,7 +36,25 @@ export interface VideoEntry {
   id: string;
   /** Human title shown under the player. */
   title?: string;
+  /**
+   * Optional reveal date, `YYYY-MM-DD` (or any Date-parsable string). The video
+   * stays out of the gallery until local midnight of that day. Omit to always
+   * show.
+   */
+  visibleFrom?: string;
 }
+
+/**
+ * Videos whose `visibleFrom` has arrived (or that have none). Dates without a
+ * time component are read as *local* midnight, so a reveal set for the 1st
+ * happens at 00:00 in the couple's timezone rather than 02:00 CEST via UTC.
+ */
+export const visibleVideos = (videos: VideoEntry[] = [], now: Date = new Date()): VideoEntry[] =>
+  videos.filter(({ visibleFrom }) => {
+    if (!visibleFrom) return true;
+    const when = new Date(/^\d{4}-\d{2}-\d{2}$/.test(visibleFrom) ? `${visibleFrom}T00:00:00` : visibleFrom);
+    return Number.isNaN(when.getTime()) || now >= when;
+  });
 
 export interface GalleryManifest {
   photos: PhotoEntry[];

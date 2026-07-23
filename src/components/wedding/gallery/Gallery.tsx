@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { clearCredentials, getAuthHeader, restoreCredentials, setCredentials } from './authStore';
 import PhotoGrid from './PhotoGrid';
 import VideoGallery from './VideoGallery';
-import { MANIFEST_URL, UNLOCK_FLAG, type GalleryManifest } from './types';
+import { MANIFEST_URL, UNLOCK_FLAG, visibleVideos, type GalleryManifest } from './types';
 
 type Status = 'locked' | 'checking' | 'unlocked' | 'error';
 
@@ -80,14 +80,17 @@ const Gallery = () => {
 
   // --- Unlocked: show the gallery ------------------------------------------
   if (status === 'unlocked' && manifest) {
+    // Videos can carry a `visibleFrom` reveal date; hold those back until then.
+    const videos = visibleVideos(manifest.videos);
+
     return (
       <div className="space-y-16">
-        {manifest.videos?.length > 0 && (
+        {videos.length > 0 && (
           <div>
             <h3 className="mb-8 flex items-center justify-center gap-3 text-display-md text-primary">
               <Video size={28} /> Videók
             </h3>
-            <VideoGallery videos={manifest.videos} />
+            <VideoGallery videos={videos} />
           </div>
         )}
 
@@ -100,7 +103,7 @@ const Gallery = () => {
           </div>
         )}
 
-        {!manifest.videos?.length && !manifest.photos?.length && (
+        {!videos.length && !manifest.photos?.length && (
           <p className="text-center text-primary-foreground text-lg font-script">
             A galéria hamarosan megtelik emlékekkel. 💕
           </p>
