@@ -32,8 +32,13 @@ export interface PhotoEntry {
 }
 
 export interface VideoEntry {
-  /** YouTube video id (the part after `watch?v=`). */
+  /**
+   * Video id: for YouTube the part after `watch?v=`; for Google Drive the
+   * FILE_ID from the share link (`drive.google.com/file/d/FILE_ID/view`).
+   */
   id: string;
+  /** Hosting provider; omit for YouTube (the default). */
+  provider?: 'youtube' | 'drive';
   /** Human title shown under the player. */
   title?: string;
   /**

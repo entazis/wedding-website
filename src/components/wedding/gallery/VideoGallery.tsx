@@ -7,11 +7,24 @@ interface VideoGalleryProps {
 }
 
 /**
- * YouTube (unlisted) videos rendered as lightweight click-to-play facades:
- * we show the poster thumbnail first and only inject the iframe on click, so
- * a page with several films doesn't load several players up front. Uses the
- * privacy-enhanced `youtube-nocookie.com` domain.
+ * YouTube (unlisted) or Google Drive videos rendered as lightweight
+ * click-to-play facades: we show the poster thumbnail first and only inject
+ * the iframe on click, so a page with several films doesn't load several
+ * players up front. YouTube uses the privacy-enhanced `youtube-nocookie.com`
+ * domain; Drive files must be shared "anyone with the link" and use Drive's
+ * own preview player (which needs one more tap on its play button — the
+ * preview iframe doesn't support autoplay).
  */
+const embedSrc = (video: VideoEntry): string =>
+  video.provider === 'drive'
+    ? `https://drive.google.com/file/d/${video.id}/preview`
+    : `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0`;
+
+const posterSrc = (video: VideoEntry): string =>
+  video.provider === 'drive'
+    ? `https://drive.google.com/thumbnail?id=${video.id}&sz=w1280`
+    : `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
+
 const VideoGallery = ({ videos }: VideoGalleryProps) => {
   const [playing, setPlaying] = useState<Set<string>>(new Set());
 
@@ -30,7 +43,7 @@ const VideoGallery = ({ videos }: VideoGalleryProps) => {
             {playing.has(video.id) ? (
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0`}
+                src={embedSrc(video)}
                 title={video.title ?? 'Esküvői videó'}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -42,7 +55,7 @@ const VideoGallery = ({ videos }: VideoGalleryProps) => {
                 aria-label={`Videó lejátszása: ${video.title ?? ''}`}
               >
                 <img
-                  src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                  src={posterSrc(video)}
                   alt={video.title ?? 'Esküvői videó'}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
